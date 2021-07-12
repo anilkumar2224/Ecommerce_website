@@ -1,0 +1,542 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>BRUH</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+</style>
+<link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
+	<!-- <link rel="icon" type="image/png" href="/images/icons/favicon.png"/> -->
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/fonts/linearicons-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/vendor/slick/slick.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/vendor/MagnificPopup/magnific-popup.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/vendor/perfect-scrollbar/perfect-scrollbar.css">
+	
+    
+	
+
+
+
+
+
+<!--===============================================================================================-->
+
+
+ <link rel="stylesheet" type="text/css" href="/stylesheets/singlecard.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/util.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/slider.css">
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+	<link rel="stylesheet" href="/stylesheets/menu.css" />
+	<link rel="stylesheet" href="/stylesheets/horizontalstyle.css" />
+	<link rel="stylesheet" href="/stylesheets/login.css" />
+
+<!--===============================================================================================-->
+
+
+</head>
+<body class="animsition" >
+	
+	<!-- Header -->
+	<header style="position: relative;height: 70px;">
+		<!-- Header desktop -->
+		<div class="container-menu-desktop">
+			<!-- Topbar -->
+			
+			<div class="wrap-menu-desktop">
+				<nav class="limiter-menu-desktop " style="max-width: 100vw;" >
+					
+					<!-- Logo desktop -->		
+					<a href="/" class="logo">
+						<!-- <img src="images/icons/logo-01.png" alt="IMG-LOGO"> -->
+						<h2 style="font-size: 25px;font-family: 'Varela Round', sans-serif;font-weight: 700;">BRUH</h2>
+					</a>
+
+					<!-- Menu desktop -->
+				
+						<ul class="main-menu ">
+						  <li class="nav-item">
+							<a class="nav-link nav_item" href="/pages/about-us"
+							  >About Us</a
+							>
+						  </li>
+
+
+						  <% for(var i=0;i<categories.length;i++){%>
+						  <li class="nav-item dropdown">
+							<a
+							  class="nav-link nav_item"
+							  href="/products/category/<%=categories[i].slug%>"
+							  id="navbarDropdown"
+							
+							
+							  aria-haspopup="true"
+							  aria-expanded="false"
+							>
+							  <%=categories[i].title%>
+							</a>
+							<div
+							  class="dropdown-menu  "
+							  aria-labelledby="navbarDropdown"
+							  style="top: 62px;"
+							>
+							  <div class="dropdown-menu-container">
+								<% for(var j=0;j<categories[i].Subcategories.length;j++){%> 
+								<div class="dropdown-menu-subsection">
+								  <a class="dropdown-item-header" href="#">
+									<%=categories[i].Subcategories[j].Parent_Subcategory.title%>
+								  </a>
+								  <div class="dropdown-item-container">
+									<% for(var k=0;k<categories[i].Subcategories[j].Child_Subcategory.length;k++){%> 
+									<a class="dropdown-item" href="/products/category/<%=categories[i].slug%>/<%=categories[i].Subcategories[j].Parent_Subcategory.slug%>/<%=categories[i].Subcategories[j].Child_Subcategory[k].slug%>">
+										<%=categories[i].Subcategories[j].Child_Subcategory[k].title%>
+									</a>
+
+									<%}%>
+
+
+								
+								  </div>
+								</div>
+                                <%}%>
+
+							  </div>
+							</div>
+						  </li>
+						  <%}%>
+					  
+						
+
+						  <li class="nav-item">
+							<a
+							href="/blog"
+							class=" nav-link nav_item"
+							href="/blog"
+						  >
+							Blogs
+						  </a>
+						  </li>
+
+
+						
+						  <li class="nav-item">
+							<a class="nav-link nav_item" href="/consultcheckout">
+							<i class="zmdi zmdi-phone"></i>
+							&nbsp Consult our expert</a
+							>
+						  </li>
+						</ul>
+					
+
+					<!-- Icon header -->
+					<div class="wrap-icon-header flex-w flex-r-m"  >
+					
+						<div class="search-container"><div class="search-box-container"><form role="form" autocomplete="off" action="/products/search"><div class="search-box"><input id="search-input" name="search" class="form-control" type="text" placeholder="Search for items, brands &amp; inspiration" value=""><button class="search-button"><svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19"><path fill="#212121" stroke="#000" stroke-width=".2" d="M18.78 17.722l-4.328-4.328A7.588 7.588 0 0 0 8.585 1a7.586 7.586 0 1 0 0 15.171 7.546 7.546 0 0 0 4.806-1.715l4.327 4.324 1.062-1.058zm-10.194-3.06a6.084 6.084 0 0 1-6.08-6.076c0-3.35 2.726-6.08 6.08-6.08a6.09 6.09 0 0 1 6.08 6.08c0 3.35-2.73 6.076-6.08 6.076z"></path></svg></button></div></form></div></div>
+
+
+
+						<% if (login) { %>
+						
+							<li class="nav-item dropdown">
+								<a
+								
+								  id="navbarDropdown"
+								  aria-haspopup="true"
+								  aria-expanded="false"
+								
+								>
+								<div class="header-user icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11" style="height: 60px; margin-top: 32px;">
+									<i class="zmdi zmdi-account-circle"></i>
+										  
+									 </div>
+								</a>
+								<div
+								  class="dropdown-menu  "
+								  aria-labelledby="navbarDropdown"
+								  style="left: -20px;top: 80px;"
+								>	<a class="dropdown-item" href="/user/profile">
+								  <div class="dropdown-menu-container">
+								
+									<div class="dropdown-menu-subsection" style="display: flex;">
+									
+										  
+										  Profile &nbsp<i class="fa fa-angle-right" style="font-size:20px;"></i>
+										  </div>
+										  </div>
+										  </a>
+										  <a class="dropdown-item" href="/user/resetpassword/<%=currentUser._id%>">
+											<div class="dropdown-menu-container">
+										  
+											  <div class="dropdown-menu-subsection" style="display: flex;">
+											  
+													
+													Change Password &nbsp<i class="fa fa-angle-right" style="font-size:20px;"></i>
+													</div>
+													</div>
+													</a>
+									<a class="dropdown-item" href="/user/logout">
+										<div class="dropdown-menu-container">
+									<div class="dropdown-menu-subsection" style="display: flex;">
+									
+
+											Logout &nbsp<i class="fa fa-angle-right" style="font-size:20px;"></i>
+										
+										
+									  </div>
+									</div>
+								</a>
+	
+								  </div>
+							
+							  </li>
+
+
+
+
+							<% } else {%>
+							
+
+							  <li class="nav-item dropdown">
+								<a
+								
+								  id="navbarDropdown"
+								  aria-haspopup="true"
+								  aria-expanded="false"
+								>
+								<div class="header-user icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11" style="height: 60px;margin-top: 32px;">
+									<i class="zmdi zmdi-account-circle"></i>
+										  
+									 </div>
+								</a>
+								<div
+								  class="dropdown-menu  "
+								  aria-labelledby="navbarDropdown"
+								  style="left: -20px;top: 80px;"
+								>
+								<a class="dropdown-item" href="/user/signin">
+								  <div class="dropdown-menu-container">
+								
+									<div class="dropdown-menu-subsection" style="display: flex;">
+									 
+										Login &nbsp<i class="fa fa-angle-right" style="font-size:20px;"></i>
+										
+									
+									</div>
+								
+	
+								  </div>
+								</a>
+								</div>
+							  </li>
+									  <% }%>
+
+
+
+						<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="" id="js-cart" >
+							<i class="zmdi zmdi-shopping-cart"></i>
+						</div>
+					
+						<div class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11"  onclick="postdata()">
+							<i class="zmdi zmdi-favorite-outline p-t-7"></i>
+							<div class="point-badge p-t-7" id="dot"></div>
+						</div>
+						<form id="wishform" action="/postdata" method="POST">
+							<input id="datafiles" name='ids' value="" type="hidden"/>
+							
+						 </form>
+					</div>
+				</nav>
+			</div>	
+		</div>
+
+		<!-- Header Mobile -->
+		<div class="wrap-header-mobile" style="display: flex;flex-direction: column;">
+				<!-- Button show menu -->
+				<div style="display: flex;flex-direction: row;height: 100%;width: 100%;">
+				<div class="btn-show-menu-mobile hamburger hamburger--squeeze">
+					<span class="hamburger-box">
+						<span class="hamburger-inner"></span>
+					</span>
+				</div>
+			<!-- Logo moblie -->		
+			<div class="logo-mobile">
+				<!-- <a href="index.html"><img src="images/icons/logo-01.png" alt="IMG-LOGO"></a> -->
+				<a href="/">
+
+					<h2 style="font-size: 25px;font-weight: 700; color: #8e2de2;font-family: 'Varela Round', sans-serif;">BRUH</h2>
+				</a>
+			</div>
+
+			<!-- Icon header -->
+			<div class="wrap-icon-header flex-w flex-r-m m-r-15">
+			
+
+				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart" data-notify="" id="js-cart1">
+					<i class="zmdi zmdi-shopping-cart"></i>
+				</div>
+				<div class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11"  onclick="postdata()">
+					<i class="zmdi zmdi-favorite-outline p-t-7"></i>
+					<div class="point-badge p-t-7" id="dot1"></div>
+				</div>
+			</div>
+</div>
+		
+		
+		</div>
+
+		
+		<!-- Menu Mobile -->
+		<div class="mobile-menu js-cart">
+			<div class="s-full js-hide-cart"></div>
+	
+			<div class="menu-lists flex-col-l">
+				<div class="header-title" style="background: #eeeeee63;height: 100px;">
+
+                
+					<div class="header-user icon-header-item cl2 hov-cl1 trans-04 p-l-12 p-r-11">
+						<i class="zmdi zmdi-account-circle p-t-30"></i>
+							  
+						 </div>
+					<% if (login) { %>
+						<div style="display: flex;flex-direction: column;margin:15px auto ;">
+						<span class="mtext-102 cl2" style="text-align: left !important;">
+							Welocme,
+						</span>
+							<span class="mtext-102 cl2" style="text-align: left !important;">
+								<%=currentUser.username%>
+							</span>
+						</div>
+						<% } else {%>
+							<a href="/user/signin">
+					<span class="mtext-103 cl2 p-l-25">
+						Login/
+					</span>
+				</a>
+				<a href="/user/signup">
+					<span class="mtext-103 cl2">
+						Register
+					</span>
+				</a>
+				<% } %>
+					<div class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart cross ">
+						<i class="zmdi zmdi-close"></i>
+					</div>
+				</div>
+
+
+				<aside class="sidebar-left-collapse">
+
+
+					<!-- <div class="sidebar-links navelement st-search-bar" >
+						<form action="/products/search" method="GET">
+						   <input type="text" name="search" placeholder="Search..." value="" autocapitalize="off" autocomplete="off" autocorrect="off">
+					   </form>
+
+					   </div> -->
+					<div class="sidebar-links navelement">
+						<% if (login) { %>
+							<div class="links ">
+								<a href="/user/profile">
+									<span>Profile</span>
+								
+								</a>
+								
+							  </div>
+							  <% } %>
+						
+						
+			    <% for(var i=0;i<categories.length;i++){%>
+					  <div class="links navelement">
+						<div style="display: flex;flex-direction: row;">
+							<!-- /products/category/<%=categories[i].slug%> -->
+							<span><a href="#"><%=categories[i].title%></a></span>
+							<span class="icon-dropdown" data-toggle-menu-mb="">
+							  <i class="fa fa-angle-right" aria-hidden="true"></i>
+						  </span>
+						</div>
+						<ul class="sub-links">
+				<% for(var j=0;j<categories[i].Subcategories.length;j++){%> 	
+						  <li class="navelement"><div class="link">
+							<div >
+								<!-- /products/category/<%=categories[i].slug%>/<%=categories[i].Subcategories[j].Parent_Subcategory.slug%> -->
+								<span><a href="#"><%=categories[i].Subcategories[j].Parent_Subcategory.title%>
+								</a></span>
+								<span class="icon-dropdown" data-toggle-menu-mb="">
+								  <i class="fa fa-angle-right" aria-hidden="true"></i>
+							  </span>
+							</div>
+							<ul class="sub-linkss ">
+			<% for(var k=0;k<categories[i].Subcategories[j].Child_Subcategory.length;k++){%> 
+								<li><a href="/products/category/<%=categories[i].slug%>/<%=categories[i].Subcategories[j].Parent_Subcategory.slug%>/<%=categories[i].Subcategories[j].Child_Subcategory[k].slug%>"><%=categories[i].Subcategories[j].Child_Subcategory[k].title%></a></li>
+								<% }%>
+							  </ul>
+						  </div>
+						</li>
+						 
+						  <% }%>
+						</ul>
+					  </div>
+				  
+					  <% }%>
+				  
+				
+
+
+					  <div class="links ">
+						<a href="/blog" >
+							<span>Blogs</span>
+						  
+						</a>
+						
+					  </div>
+					 
+					  <div class="links ">
+						<a href="/consultcheckout">
+							<span>Contact Doctor</span>
+						 
+						</a>
+						
+					  </div>
+					  <div class="links ">
+						<a href="/pages/about-us">
+							<span>About Us</span>
+						
+						</a>
+						
+					  </div>
+					  <% if (login) { %>
+						<div class="links">
+							<a href="/user/resetpassword/<%=currentUser._id%>">
+								<span>Change Password</span>
+							
+							</a>
+							
+						  </div>
+						  <div class="links">
+							<a href="/user/logout">
+								<span>Logout</span>
+							
+							</a>
+							
+						  </div>
+						  <% } %>
+					</div>
+				  
+				  </aside>
+				  
+			</div>
+			
+		</div>
+
+
+
+	
+	</header>
+
+	<!-- Cart -->
+	
+
+
+<div class="wrap-header-cart js-panel-cart">
+	<div class="s-full js-hide-cart"></div>
+
+	<div class="header-cart flex-col-l p-l-35 p-r-25 p-b-20">
+		<div class="header-cart-title flex-w flex-sb-m p-b-4">
+			<span class="mtext-103 cl2">
+				Your Cart
+			</span>
+
+			<div class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
+				<i class="zmdi zmdi-close"></i>
+			</div>
+		</div>
+		
+		<div class="header-cart-content flex-w w-full js-pscroll">
+			<ul class="header-cart-wrapitem w-full" id="cart">
+				
+			</ul>
+			
+		
+		</div>
+		<div class="w-full">
+			<div class="header-cart-total w-full p-tb-8" id="side-cost">
+				
+			</div>
+
+			<div class="header-cart-buttons flex-w w-full">
+				<a href="/shopping-cart" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10" >
+					View Cart
+				</a>
+
+				<a href="/directcheckout" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10" id="check_out_nav">
+					Check Out
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+		
+
+	
+
+
+
+
+	<!-- Back to top -->
+	<div class="btn-back-to-top" id="myBtn">
+		<span class="symbol-btn-back-to-top">
+			<i class="zmdi zmdi-chevron-up"></i>
+		</span>
+	</div>
+
+	<!-- Modal1 -->
+	
+<script>
+	 
+      
+        
+    
+	  function postdata(){
+        if(localStorage.getItem('bruhwishitems')!=null){
+        document.getElementById("datafiles").value=localStorage.getItem('bruhwishitems').split(',');
+        console.log( document.getElementById("datafiles").value);
+        document.getElementById('wishform').submit();
+        }else{
+			document.getElementById('wishform').submit();
+		}
+      }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+Hi Bhanu Prakash Ramineni,
+
+Your order has been processed successfully.        
+
+You can check the status of your order and more in your dashboard:        
+https://pure-spire-67467.herokuapp.com/user/profile        
+
+We thank you for your purchase.        
+
+Yours truly,  
+BRUH
+
+&copy; 2021 <a href="https://pure-spire-67467.herokuapp.com/" target="_blank">BRUH</a>. All rights reserved.

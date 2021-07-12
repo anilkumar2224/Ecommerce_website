@@ -1,0 +1,45 @@
+<%- include ../partials/homeheader %>
+
+    <div class="container p-t-30 p-b-20" style="height: 100vh; align-items: center">
+        <div class="fgrid">
+        
+          <div class="section-header">
+            <h1>Reset Password</h1>
+            <hr class="hr--small" />
+        </div>
+        <% if(errorMsg !=null && errorMsg.length>0) {%>
+            <div id="flash-msg" class="alert alert-danger"><%=errorMsg %></div>
+            <%}%>
+
+          
+   <form action="/user/resetpassword" method="post" class="lform login">
+    <div class="form__field">
+        <label for="password" style="margin-bottom: 0px;"><svg class="icon" style="margin-top:auto;font-size:20px">
+            <use xlink:href="#icon-lock"></use>
+          </svg><span class="hidden">Password</span></label>
+        <input   autocomplete="off" id="password" type="password" name="password" class="form__input" placeholder="New Password" required>
+      </div>
+      
+      <div class="form__field">
+        <label for="password2" style="margin-bottom: 0px;"><svg class="icon" style="margin-top:auto;font-size:20px">
+            <use xlink:href="#icon-lock"></use>
+          </svg><span class="hidden">Verify Password</span></label>
+        <input id="password2" type="password" name="password2" class="form__input" placeholder="Verify New Password" required>
+      </div>
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+      <input type="hidden" name="id" value="<%= id %>" />
+      <div class="form__field">
+        <input type="submit" value="Submit" />
+      </div>
+   </form>
+   </div>
+   <svg>
+
+    <symbol id="icon-lock" viewBox="0 0 1792 1792">
+        <path d="M640 768h512V576q0-106-75-181t-181-75-181 75-75 181v192zm832 96v576q0 40-28 68t-68 28H416q-40 0-68-28t-28-68V864q0-40 28-68t68-28h32V576q0-184 132-316t316-132 316 132 132 316v192h32q40 0 68 28t28 68z" />
+      </symbol>
+    </svg>
+    </div>
+
+
+<%- include ../partials/homefooter %>

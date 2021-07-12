@@ -1,0 +1,117 @@
+<%- include ../partials/homeheader %>
+
+<div class="container p-t-30 p-b-20" style="height: 100vh; align-items: center">
+    <div class="fgrid">
+    
+      <div class="section-header">
+        <h1>ENTER OTP</h1>
+        <hr class="hr--small" />
+    </div>
+   
+
+      
+<form method="post" class="lform login" id="otpform">
+
+    <div class="form__field">
+        <label for="otp" style="margin-bottom: 0px;"><svg class="icon" style="margin-top:auto;font-size:20px">
+            <use xlink:href="#icon-lock"></use>
+          </svg><span class="hidden">OTP</span></label>
+        <input  maxlength="5"  autocomplete="off" id="otp1" type="otp" name="otp" class="form__input" placeh+older="OTP" required style="color: black;">
+      </div>
+    <input autocomplete="off" type="hidden" name="_csrf" value="<%= csrfToken %>" />
+    <input autocomplete="off" type="hidden" name="name" value="<%= username %>" />
+    <input autocomplete="off" type="hidden" name="email" value="<%= email %>" />
+    <input autocomplete="off" type="hidden" name="password" value="<%= password %>" />
+    <input autocomplete="off" type="hidden" name="password2" value="<%= password2 %>" />
+    <input autocomplete="off" type="hidden" name="resendcheck" id="resendcheck" value="0" />
+    
+    <div class="form__field">
+      <input type="submit" value="Signup" id="signup-btn">
+    </div>
+    <div class="form__field">
+      <input type="submit" value="Resend OTP" id="resend-btn">
+      
+    </div>
+</form>
+
+
+ 
+
+<!-- <button type="" id="signup-btn">Signup</button>
+<button type="" id="resend-btn" style="">Resend Button</button> -->
+</div>
+<svg>
+
+<symbol id="icon-lock" viewBox="0 0 1792 1792">
+    <path d="M640 768h512V576q0-106-75-181t-181-75-181 75-75 181v192zm832 96v576q0 40-28 68t-68 28H416q-40 0-68-28t-28-68V864q0-40 28-68t68-28h32V576q0-184 132-316t316-132 316 132 132 316v192h32q40 0 68 28t28 68z" />
+  </symbol>
+</svg>
+</div>
+
+
+<%- include ../partials/homefooter %>
+<script>
+     document.getElementById("otpform").addEventListener("submit",(e)=>{
+       e.preventDefault()
+       document.getElementById("resendcheck").value = "0"
+     })
+
+    console.log("hi hihii")
+    document.getElementById("signup-btn").addEventListener("click",async (e)=>{
+    // console.log(document.getElementById("otp2").value)
+     var data= await  fetch("/user/otpcheck", {
+            method: "POST",
+            body: JSON.stringify({
+                _csrf: "<%= csrfToken %>",
+                otp:document.getElementById("otp1").value,
+                resendcheck : "0"
+              
+      
+            }),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        })
+          if(data.ok){
+            var response= await data.json();
+            if(response.status){
+              console.log("hi dude")
+    document.getElementById("otpform").action="/user/signup"
+
+     document.getElementById("otpform").submit()
+            }else{
+              alert("enter a valid otp")
+            }
+          }
+        // Converting to JSON
+       
+        
+   
+}
+    )
+      document.getElementById("resend-btn").addEventListener("click",async (e)=>{
+
+        var data= await  fetch("/user/resendcheck", {
+            method: "POST",
+            body: JSON.stringify({
+                _csrf: "<%= csrfToken %>",
+              
+      
+            }),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        })
+          if(data.ok){
+            var response= await data.json();
+            if(response.status){
+              document.getElementById("otp1").value=" "
+        document.getElementById("otpform").action="/user/authform"
+          document.getElementById("otpform").submit()
+            }else{
+              alert("Somthing Bad Happened ,Please try Again")
+            }
+          }
+      })
+  
+</script>

@@ -1,0 +1,136 @@
+<%- include ../partials/homeheader %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="bg0 p-b-0" >
+    <div>
+        <div class="categories-thumbs category-stories" style="--bgcolor:rgba(48,143,255,0.1); --bgcolor2:rgba(48,143,255,0);position: relative;">
+            <div class="container">
+            <div class="set-inline">
+                <div class="category-strip">
+                    <div class="bredcrumb">
+                        <div class="sidebar-links  st-search-bar" style="margin-top: 20px;" >
+                            <form action="/products/search" method="GET">
+                               <input  style="" type="text" name="search" placeholder="Search..." value="" autocapitalize="off" autocomplete="off" autocorrect="off">
+                           </form>
+                    
+                           </div>
+                        <ul>
+                            <li>
+                                <a href="/">Home</a> <span class="b-arrow"><svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 2.107L4.351 6.4 0 10.693 1.324 12 7 6.4 1.324.8 0 2.107z" fill="#212121"></path></svg></span>
+                            </li>
+                            <li>
+                                <a href="/products/<%=titleslug%>"><%=title%></a> <span class="b-arrow"><svg width="7" height="12" viewBox="0 0 7 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 2.107L4.351 6.4 0 10.693 1.324 12 7 6.4 1.324.8 0 2.107z" fill="#212121"></path></svg></span>
+                            </li>
+                            <li class="active ">
+                                <a role="button"><%=pageName%></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+              
+            </div>
+            <div class="slider-center">
+                <div class="slick-slider slick-initialized" dir="ltr">
+                    <div class="slick-arrow slick-prev slick-disabled"></div>
+                    <div class="slick-listt">
+                        <div class="slick-track" style="width: 1416px; opacity: 1; transform: translate3d(0px, 0px, 0px);">
+
+                            <% for(var i=0;i<currentCategory.Child_Subcategory.length;i++){%>
+                            <div data-index="<%i%>" class="slick-slide slick-active slick-current" tabindex="-1" aria-hidden="false" style="outline: none; width: 118px;">
+                            <div>
+                                <a class="stories-item" tabindex="-1" href="/products/category/<%=titleslug%>/<%=pageNameslug%>/<%=currentCategory.Child_Subcategory[i].slug%>" style="width: 100%; display: inline-block;">
+                            <div class="stories-circle small"><span class="stories-img"><img src="https://img.mensxp.com/media/shop/menu/2021/feb/412.jpg?w=120&amp;h=120&amp;cc=1&amp;q=75" width="60" height="60" data-src="/menu/2021/feb/412.jpg" alt="Accessories" title="Accessories"></span></div><div class="stories-title"><%=currentCategory.Child_Subcategory[i].title%></div></a>
+                        </div>
+                        </div>
+                         <%}%>
+                    
+                  </div>
+                </div>
+                <div class="slick-arrow slick-next"></div>
+            </div></div>
+        </div>
+        </div>
+    </div>
+ <div class="container p-t-30 p-b-30 m-t-50" >
+    
+    <div id="grid">
+        <% if(products.length===0){ %>
+
+            <div style="height: 73vh !important; position:relative;width: 92vw;" class="p-t-220"> 
+                <h1 style="color: #333;font-size: 20px;position:absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);">No Data found !</h1>
+            </div>
+            <% } %>
+        <% for(let i=0; i<products.length; i++) { %>
+            <div class="product" style="z-index: 1;margin:0 auto;margin-bottom: 20px;">
+              
+               
+                <div class="make3D" style="transition: all 100ms ease-out 0s;">
+                    <div class="product-front" style="display: block;">
+                        <div>
+                            <a role="button" class="favourite-icon" onclick="addwishlist(`<%=products[i]._id%>`)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 29 24"><path class="love<%=products[i]._id%>" fill="#fff" stroke="#000" stroke-width="1.826" d="M14.617 21.99l-.058-.029a34.366 34.366 0 0 1-1.923-1.036 36.172 36.172 0 0 1-4.452-3.05l-.002-.001C3.83 14.386 1.787 10.747 1.854 7.37v-.035L1.852 7.3c-.097-1.745.552-3.357 1.744-4.497v-.001C4.72 1.725 6.32 1.117 8.06 1.117c1.283 0 2.498.498 3.546 1.167a12.346 12.346 0 0 1 2.342 1.98l.67.72.668-.72c.477-.514 1.298-1.314 2.342-1.98 1.049-.669 2.264-1.167 3.547-1.167 1.776 0 3.34.607 4.463 1.686h.001c1.182 1.133 1.809 2.711 1.742 4.55v.052c.067 3.341-1.976 6.98-6.328 10.469l-.001.001a36.533 36.533 0 0 1-6.378 4.086l-.057.028z"></path></svg></a>
+                        </div>
+                       
+                     
+                        <div style="width: 200px;height: 200px;margin-top: 5px; " class="image_wrapper">
+                          <img  style="width: 100%; height: -webkit-fill-available;
+                      
+                          object-fit: contain;margin:0 auto;" src="<%-products[i].imagePath[0]%>" alt="">
+                    </div>
+                       
+                        <div class="add_to_cart" onclick="addtocart('<%=products[i]._id%>')">
+                          <i class="fa fa-shopping-cart"></i>
+                        </div>
+                         <a href="/products/<%=products[i]._id%>" style="color: #fff;">
+                            <div class="view_gallery">
+                              <i class="fa fa-eye"></i></div> 
+                        </a>               
+                        <div class="stats">        	
+                            <div class="stats-container">
+                              <div style="display: flex;flex-direction: row;justify-content: flex-start;">
+  
+                                <span class="product_price" >₹<%=products[i].price%></span>
+                                <span class="product_price mrp" style="color: #666;font-size: 12px;margin-top: 2px;text-align: center;margin-left: 10px;"><del>₹<%=products[i].mrpPrice%></del></span>
+                                <%if(products[i].discount){%>
+                                    
+                                    <span class="product_price " style="color: #f30;margin-left: 10px;font-size: 12px;margin-top: 2px;text-align: center;"><%=products[i].discount%></span>
+                                    <%}%>
+                                </div>
+                                <div class="elipse">
+
+                                    <span class="product_name"><%=products[i].title%></span>    
+                                            </div>        
+                             
+                                                     
+                           </div>                         
+                        </div>
+                    </div>
+                    
+                    
+                </div>	
+            </div>
+        <%}%>
+        
+        
+    </div>
+</div>
+<!-- <%- include ../partials/pagination %> -->
+</section>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+ 
+
+
+<%- include ../partials/homefooter %>

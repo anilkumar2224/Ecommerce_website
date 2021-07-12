@@ -1,0 +1,173 @@
+<%- include ../partials/homeheader %>
+
+<link
+  href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap"
+  rel="stylesheet"
+/>
+
+<!-- <link rel="stylesheet" href="/fonts/icomoon/style.css" /> -->
+
+<link rel="stylesheet" href="/stylesheets/consultcss/owl.carousel.min.css" />
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="/stylesheets/consultcss/bootstrap.min.css" />
+
+<!-- Style -->
+<link rel="stylesheet" href="/stylesheets/consultcss/style.css" />
+
+<title>Consult CheckOut</title>
+
+<body >
+  <div class="cont">
+    <h2 style="color: red;margin: 0 auto;text-align: center;">HURRY NOW ! FREE CONSULTATIONS ARE GOING ON TILL :<%= check_time %></h2>
+    <div class="container" id="">
+      <div class="row">
+        <div class="col-md-6">
+          <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+          <lottie-player
+            src="https://assets8.lottiefiles.com/temp/lf20_R7WisW.json"
+            background="#FFFFFF"
+            speed="1"
+            loop
+            autoplay
+          ></lottie-player>
+        </div>
+        <div class="col-md-6 conts">
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+              <div class="mb-4">
+                <h3 style="color: black;">Payment Form</h3>
+                <p class="mb-4" style="font-size: 15px;">
+                  Lorem ipsum dolor sit amet elit. Sapiente sit aut eos
+                  consectetur adipisicing.
+                </p>
+              </div>
+              <form action="payment_gateway/payu" method="post" name="payuform" id="consultform">
+                <div class="form-group first">
+                  <label for="firstname">Full name</label>
+                  <input
+                    style="padding:1px;"
+                    type="text"
+                    class="form-control"  
+                    name="firstname"
+                    id="fullname"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <!-- <label for="email">Email</label> -->
+                  <input
+                    type="email"
+                    class="form-control"
+                    name="email"
+                    id="email"
+                    value="<%=email%>"
+                    required
+                    readonly
+                  />
+                </div>
+                <div class="form-group">
+                  <!-- <span>+91</span
+                    > -->
+                  <label for="number">(+91) Phone Number</label>
+                  <input
+                    type="tel"
+                    maxlength="10"
+                    class="form-control"
+                    name="number"
+                    id="phone"
+                    required
+                  />
+                </div>
+                <div>
+                  <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+                  <input
+                    type="hidden"
+                    name="service_provider"
+                    value="payu_paisa"
+                  />
+                  <input class="amount" type="hidden" name="amount" value="1" />
+                  <input
+                    type="hidden"
+                    class="product"
+                    name="productinfo"
+                    value="educational purpose"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="udf2"></label>
+                  <select
+                    type="select"
+                    name="udf2"
+                    id="selectptype"
+                    class="form-control"
+                    required
+                    aria-invalid="false"
+                  >
+
+                  
+                  <option value=""  selected>Select Problem Type</option>
+                  <option value="skin">Skin</option>
+                    <option value="hair">Hair</option>
+                    <option value="body">Body</option>
+                 
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="udf1"></label>
+                  <!-- <input type="" class="form-control" /> -->
+                  <select
+                    type="text"
+                    name="udf1"
+                    class="form-control"
+                    list="slotname"
+                    required
+                    aria-invalid="false"
+                  >
+                  <option value=""  selected>Select a Slot</option>
+                
+                    <option value="9-10">9-10</option>
+                    <option value="10-11">10-11</option>
+                    <option value="11-12">11-12</option>
+                    <option value="12-13">12-13</option>
+                  </select>
+                </div>
+
+                <div class="d-flex mb-5 align-items-center"></div>
+
+                <input
+                  type="submit"
+                  value="Proceed"
+                  id="submitbtn"
+                  class="btn btn-block btn-primary"
+                  style="font-size: 20px;"
+                />
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/javascripts/consultjs/jquery-3.3.1.min.js"></script>
+  <script src="/javascripts/consultjs/popper.min.js"></script>
+  <script src="/javascripts/consultjs/bootstrap.min.js"></script>
+  <script src="/javascripts/consultjs/main.js"></script>
+</body>
+<%- include ../partials/homefooter %>
+<!-- <script>
+  document.getElementById("consultform").addEventListener("submit",(e)=>{
+    e.preventDefault()
+  })
+  
+    document.getElementById("selectptype").addEventListener("click",(e)=>{
+if(document.getElementById("selectptype").value=="select"){
+    document.getElementById("submitbtn").
+
+}else{
+  document.getElementById("consultform").submit()
+}
+}
+    ) -->
+</script>

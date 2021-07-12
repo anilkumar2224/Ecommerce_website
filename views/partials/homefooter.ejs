@@ -1,0 +1,702 @@
+<!-- Footer -->
+
+<footer class="bg3 p-t-75 p-b-32">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-lg-3 p-b-50">
+        <h4 class="stext-301 cl0 p-b-30">Categories</h4>
+
+        <ul>
+          <% if (categories) {
+          for(let i=0; i<categories.length; i++){ %>
+          <li class="p-b-10">
+            <a href="/products/category/<%=categories[i].slug%>" class="stext-107 cl7 hov-cl1 trans-04"> <%=categories[i].title%></a>
+          </li>
+          <%} %>
+          <%} %>
+        </ul>
+      </div>
+
+      <div class="col-sm-6 col-lg-3 p-b-50">
+        <h4 class="stext-301 cl0 p-b-30">Help</h4>
+
+        <ul>
+          <li class="p-b-10">
+            <a href="#" class="stext-107 cl7 hov-cl1 trans-04"> Track Order </a>
+          </li>
+
+          <li class="p-b-10">
+            <a href="#" class="stext-107 cl7 hov-cl1 trans-04"> Returns </a>
+          </li>
+
+          <li class="p-b-10">
+            <a href="#" class="stext-107 cl7 hov-cl1 trans-04"> Shipping </a>
+          </li>
+
+          <li class="p-b-10">
+            <a href="#" class="stext-107 cl7 hov-cl1 trans-04"> FAQs </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-sm-6 col-lg-3 p-b-50">
+        <h4 class="stext-301 cl0 p-b-30">GET IN TOUCH</h4>
+
+        <p class="stext-107 cl7 size-201">
+          Any questions? Let us know in store at 8th floor, 379 Hudson St, New
+          York, NY 10018 or call us on (+1) 96 716 6879
+        </p>
+
+        <div class="p-t-27">
+          <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+            <i class="fa fa-facebook"></i>
+          </a>
+
+          <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+            <i class="fa fa-instagram"></i>
+          </a>
+
+          <a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+            <i class="fa fa-pinterest-p"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-3 p-b-50">
+        <h4 class="stext-301 cl0 p-b-30">Newsletter</h4>
+
+        <form>
+          <div class="wrap-input1 w-full p-b-4">
+            <input
+              class="input1 bg-none plh1 stext-107 cl7"
+              type="text"
+              name="email"
+              placeholder="email@example.com"
+            />
+            <div class="focus-input1 trans-04"></div>
+          </div>
+
+          <div class="p-t-18">
+            <button
+              class="
+                flex-c-m
+                stext-101
+                cl0
+                size-103
+                bg1
+                bor1
+                hov-btn2
+                p-lr-15
+                trans-04
+              "
+            >
+              Subscribe
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="p-t-40">
+      <div class="flex-c-m flex-w p-b-18">
+        <a href="#" class="m-all-1">
+          <img src="/images/icons/icon-pay-01.png" alt="ICON-PAY" />
+        </a>
+
+        <a href="#" class="m-all-1">
+          <img src="/images/icons/icon-pay-02.png" alt="ICON-PAY" />
+        </a>
+
+        <a href="#" class="m-all-1">
+          <img src="/images/icons/icon-pay-03.png" alt="ICON-PAY" />
+        </a>
+
+        <a href="#" class="m-all-1">
+          <img src="/images/icons/icon-pay-04.png" alt="ICON-PAY" />
+        </a>
+
+        <a href="#" class="m-all-1">
+          <img src="/images/icons/icon-pay-05.png" alt="ICON-PAY" />
+        </a>
+      </div>
+
+      <!-- <p class="stext-107 cl6 txt-center"> -->
+        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        <!-- Copyright &copy;
+        <script>
+          document.write(new Date().getFullYear());
+        </script>
+        All rights reserved | This template is made with
+        <i class="fa fa-heart-o" aria-hidden="true"></i> by
+        <a href="https://colorlib.com" target="_blank">Colorlib</a> -->
+        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+      <!-- </p> -->
+    </div>
+  </div>
+</footer>
+
+<!--===============================================================================================-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="/vendor/jquery/jquery-3.2.1.min.js"></script>
+
+<!--===============================================================================================-->
+<script src="/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+<script src="/vendor/bootstrap/js/popper.js"></script>
+<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="/vendor/select2/select2.min.js"></script>
+<script>
+  $(".js-select2").each(function () {
+    $(this).select2({
+      minimumResultsForSearch: 20,
+      dropdownParent: $(this).next(".dropDownSelect2"),
+    });
+  });
+
+  const activeImage = document.querySelector(".product-image .active");
+  const productImages = document.querySelectorAll(".product-thumb img");
+  function changeImage(e) {
+    activeImage.src = e.src;
+  }
+  productImages.forEach((image) => {
+    image.addEventListener("click", () => {
+      productImages.forEach((image) => (image.style.border = "none"));
+      image.style.border = "solid orange";
+      changeImage(image);
+    });
+  });
+</script>
+<!--===============================================================================================-->
+<script src="/vendor/daterangepicker/moment.min.js"></script>
+<script src="/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+
+<script src="/vendor/slick/slick.min.js"></script>
+<script src="/js/slick-custom.js"></script>
+<!--===============================================================================================-->
+<script src="/vendor/parallax100/parallax100.js"></script>
+<script>
+  $(".parallax100").parallax100();
+</script>
+<!--===============================================================================================-->
+<script src="/vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
+<script>
+  $(".gallery-lb").each(function () {
+    // the containers for all your galleries
+    $(this).magnificPopup({
+      delegate: "a", // the selector for gallery item
+      type: "image",
+      gallery: {
+        enabled: true,
+      },
+      mainClass: "mfp-fade",
+    });
+  });
+</script>
+<!--===============================================================================================-->
+<script src="/vendor/isotope/isotope.pkgd.min.js"></script>
+<!--===============================================================================================-->
+<script src="/vendor/sweetalert/sweetalert.min.js"></script>
+<script>
+  $(".js-addwish-b2").on("click", function (e) {
+    e.preventDefault();
+  });
+
+  $(".js-addwish-b2").each(function () {
+    var nameProduct = $(this).parent().parent().find(".js-name-b2").html();
+    $(this).on("click", function () {
+      swal(nameProduct, "is added to wishlist !", "success");
+
+      $(this).addClass("js-addedwish-b2");
+      $(this).off("click");
+    });
+  });
+
+  $(".js-addwish-detail").each(function () {
+    var nameProduct = $(this)
+      .parent()
+      .parent()
+      .parent()
+      .find(".js-name-detail")
+      .html();
+
+    $(this).on("click", function () {
+      swal(nameProduct, "is added to wishlist !", "success");
+
+      $(this).addClass("js-addedwish-detail");
+      $(this).off("click");
+    });
+  });
+
+  /*---------------------------------------------*/
+
+  $(".js-addcart-detail").each(function () {
+    var nameProduct = $(this)
+      .parent()
+      .parent()
+      .parent()
+      .parent()
+      .find(".js-name-detail")
+      .html();
+    $(this).on("click", function () {
+      swal(nameProduct, "is added to cart !", "success");
+    });
+  });
+</script>
+<!--===============================================================================================-->
+<script src="/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+<script>
+  $(".js-pscroll").each(function () {
+    $(this).css("position", "relative");
+    $(this).css("overflow", "hidden");
+    var ps = new PerfectScrollbar(this, {
+      wheelSpeed: 1,
+      scrollingThreshold: 1000,
+      wheelPropagation: false,
+    });
+
+    $(window).on("resize", function () {
+      ps.update();
+    });
+  });
+
+  $(function () {
+    var close = $(".zmdi");
+    close.on("click", function () {
+      var links = $(".sidebar-links div");
+      links.removeClass("selected");
+      var link = $(".links ul li");
+      link.removeClass("selected");
+    });
+
+    var links = $(".links");
+    var link = $(".sidebar-links div ul li");
+    links.on("click", function () {
+      links.removeClass("selected");
+      $(this).addClass("selected");
+    });
+
+    link.on("click", function () {
+      link.removeClass("selected");
+      $(this).addClass("selected");
+    });
+  });
+</script>
+<!--===============================================================================================-->
+
+<script src="/js/main.js"></script>
+
+<script>
+  $(document).ready(function () {
+ 
+    $(".product").each(function (i, el) {
+      // Lift card and show stats on Mouseover
+      $(el)
+        .find(".make3D")
+        .hover(
+          function () {
+            $(this).parent().css("z-index", "20");
+            $(this).addClass("animate");
+            $(this)
+              .find("div.carouselNext, div.carouselPrev")
+              .addClass("visible");
+          },
+          function () {
+            $(this).removeClass("animate");
+            $(this).parent().css("z-index", "1");
+            $(this)
+              .find("div.carouselNext, div.carouselPrev")
+              .removeClass("visible");
+          }
+        );
+    });
+
+
+
+    $(".add_to_cart").click(function () {
+      var productCard = $(this).parent();
+      var position = productCard.offset();
+      var productImage = $(productCard).find("img").get(0).src;
+      var productName = $(productCard).find(".product_name").get(0).innerHTML;
+
+      $("body").append('<div class="floating-cart"></div>');
+      var cart = $("div.floating-cart");
+      productCard.clone().appendTo(cart);
+      $(cart)
+        .css({ top: position.top + "px", left: position.left + "px" })
+        .fadeIn("slow")
+        .addClass("moveToCart")
+        .css({ top: $(window).scrollTop() + "px" });
+      setTimeout(function () {
+        $("body").addClass("MakeFloatingCart");
+      }, 800);
+      setTimeout(function () {
+        $("div.floating-cart").remove();
+        $("body").removeClass("MakeFloatingCart");
+
+       
+  
+      }, 1000);
+    });
+  });
+
+  (async function () {
+    $("#cart").html("Loading...");
+    const data = await fetch(`/sidenav-shopping-cart`);
+    // console.log(data.text());
+    var mydiv = document.getElementById("js-cart");
+    mydiv.setAttribute("data-notify", "0");
+    var mydiv1 = document.getElementById("js-cart1");
+    mydiv1.setAttribute("data-notify", "0");
+
+    if (data.ok) {
+      const js = await data.json();
+      if (js.cart === null) {
+        $("#cart").html("No data found");
+      } else {
+        if(!js.status){
+          var checkout_link=document.getElementById('check_out_nav');
+          checkout_link.setAttribute('href','/shopping-cart')
+        }
+        //side navbar
+        document.getElementById("side-cost").innerText =
+          "Total: ₹" + js.cart.totalCost;
+        $("#cart").html("");
+        console.log(js);
+        mydiv.setAttribute("data-notify", js.cart.totalQty);
+        mydiv1.setAttribute("data-notify", js.cart.totalQty);
+        js.products.forEach((product) => {
+          if (product != null) {
+            if(product.available){
+              
+             if( document.getElementById("numitem1")!=null){
+              document.getElementById('numitem1').value=product.qty;
+             }
+            var cartItem =
+              "<div class='cart-item'><div class='img-wrap'><img src='" +
+              product.imagePath +
+              "' alt='' /></div><span>" +
+              product.title +
+              "</span>"
+              +" <p  style='margin: 5px 0;color:green''>In stock</p>"
+              +"<strong style='color:black;'>" +
+              product.qty +
+              "x" +
+              product.price +
+              "</strong><div class='cart-item-border'></div></div>";
+              }else{
+              var cartItem =
+              "<div class='cart-item'><div class='img-wrap'><img src='" +
+              product.imagePath +
+              "' alt='' /></div><span>" +
+              product.title +
+              "</span>"
+              +" <p  style='margin: 5px 0;color:red;'>Out of stock</p>"
+              +"<strong style='color:black;'>" +
+              product.qty +
+              "x" +
+              product.price +
+              "</strong><div class='cart-item-border'></div></div>";
+             
+              }
+            $("#cart .empty").hide();
+            $("#cart").append(cartItem);
+            $("#checkout").fadeIn(500);
+          }
+        });
+
+
+
+        //shopping cart
+        
+      }
+    }
+  })();
+  //
+</script>
+
+<script>
+  const slideElements = [".back__slide", ".card__slide", ".content__slide"];
+  let inProgress = false;
+
+  const goToSlide = (slideElements, index) => {
+    if (!inProgress) {
+      inProgress = true;
+
+      $(".activee").addClass("exit");
+      $(".activee").removeClass("activee");
+      slideElements.forEach((elem) => {
+        $(`${elem}:nth-child(${index})`).addClass("activee");
+      });
+
+      const evenSlide = index % 2 === 0;
+      if (evenSlide) $(".content__ping").addClass("content__ping--right");
+      else $(".content__ping").removeClass("content__ping--right");
+      $(".content__ping--noanimation").removeClass(
+        "content__ping--noanimation"
+      );
+
+      setTimeout(() => $(".exit").removeClass("exit"), 1000);
+      setTimeout(() => (inProgress = false), 2000);
+    }
+  };
+
+  $(".content__slide:nth-child(1) .button").on("click", () =>
+    goToSlide(slideElements, 2)
+  );
+  $(".content__slide:nth-child(2) .button").on("click", () =>
+    goToSlide(slideElements, 1)
+  );
+  setInterval(() => {
+    setTimeout(() => goToSlide(slideElements, 2), 2000);
+    setTimeout(() => goToSlide(slideElements, 1), 6000);
+  }, 10000);
+</script>
+
+<script>
+  (function () {
+    var likeditems = localStorage.getItem("bruhwishitems");
+    console.log("from footer", likeditems);
+    if (likeditems != null) {
+      document.getElementById("dot").style.opacity = "1";
+      document.getElementById("dot1").style.opacity = "1";
+      var ids = likeditems.split(",");
+
+      if (ids.length > 1) {
+        ids.forEach((element) => {
+          console.log(element);
+          if (element.length !== 0) {
+            // let love = document.getElementById(`love${element}`);
+            let love = document.getElementsByClassName(`love${element}`);
+            Array.from(love).forEach(ele=>{
+              if (ele !== null) {
+                ele.attributes.fill.nodeValue = "#000";
+            }
+            })
+            if(document.getElementById(`love${element}`)!==null)
+            document.getElementById(`love${element}`).classList.add('blueheart');
+          }
+        });
+      } else {
+        console.log("love" + likeditems);
+        if(document.getElementById(`love`+likeditems)!==null)
+            document.getElementById(`love`+likeditems).classList.add('blueheart');
+        let love = document.getElementsByClassName(`love`+likeditems);
+            Array.from(love).forEach(ele=>{
+              if (ele !== null) {
+               
+                ele.attributes.fill.nodeValue = "#000";
+            }
+            })
+         console.log(love);
+      }
+    } else if (likeditems === null) {
+      document.getElementById("dot").style.opacity = "0";
+      document.getElementById("dot1").style.opacity = "0";
+    }
+  })();
+
+  function postdata() {
+    if (localStorage.getItem("bruhwishitems") != null) {
+      if (localStorage.getItem("bruhwishitems").split(",").length > 1) {
+        document.getElementById("datafiles").value = localStorage
+          .getItem("bruhwishitems")
+          .split(",");
+        document.getElementById("wishform").submit();
+      } else {
+        document.getElementById("datafiles").value =
+          localStorage.getItem("bruhwishitems");
+        document.getElementById("wishform").submit();
+      }
+    } else {
+      document.getElementById("wishform").submit();
+    }
+    history.replaceState(history.state, "gotohome", "/");
+  }
+  function removewishlist(e) {
+    var likeditems = localStorage.getItem("bruhwishitems");
+    if (likeditems !== null) {
+      var num = likeditems.split(",").length;
+      console.log(num);
+      if (num > 1) {
+        if (likeditems.split(",").includes(e)) {
+          var updatedarray = likeditems.split(",").filter((ele) => {
+            if (ele !== e) {
+              return ele;
+            } else {
+              let love = document.getElementsByClassName(`love${ele}`);
+            Array.from(love).forEach(elem=>{
+              if (elem !== null) {
+                elem.attributes.fill.nodeValue = "#000";
+            }
+            })
+              //   document.getElementById(`c${ele}`).style.display='none';
+            }
+          });
+          localStorage.setItem("bruhwishitems", updatedarray);
+          postdata();
+        }
+      } else {
+        if (likeditems.includes(e)) {
+          let love = document.getElementsByClassName(`love${e}`);
+            Array.from(love).forEach(ele=>{
+              if (ele !== null) {
+                ele.attributes.fill.nodeValue = "#000";
+            }
+            })
+          document.getElementById("dot").style.opacity = "0";
+          localStorage.removeItem("bruhwishitems");
+
+          postdata();
+        }
+      }
+    }
+  }
+
+  async function addtocart(e) {
+    console.log("yep");
+    const data = await fetch(`/add-to-cart/${e}`);
+    // console.log(data.text());
+    if (data.ok) {
+      const js = await data.json();
+      console.log(js);
+      // $('.js-show-cart').data('notify',js.data);
+      // console.log(   $('.js-show-cart').data());
+      if (js.data === null) {
+        $("#cart").html("No data found");
+      } else {
+        $("#cart").html("");
+        document.getElementById("side-cost").innerText =
+          "Total: ₹" + js.data.totalCost;
+
+        js.products.forEach((product) => {
+          if (product != null) {
+            var cartItem =
+              "<div class='cart-item'><div class='img-wrap'><img src='" +
+              product.imagePath +
+              "' alt='' /></div><span>" +
+              product.title +
+              "</span><strong>" +
+              product.qty +
+              "x" +
+              product.price +
+              "</strong><div class='cart-item-border'></div></div>";
+
+            $("#cart .empty").hide();
+            $("#cart").append(cartItem);
+            $("#checkout").fadeIn(500);
+          }
+        });
+      }
+      var mydiv = document.getElementById("js-cart");
+      var mydiv1 = document.getElementById("js-cart1");
+      //   document.getElementById("numitem").value = js.data.totalQty;
+      mydiv.setAttribute("data-notify", js.data.totalQty);
+      mydiv1.setAttribute("data-notify", js.data.totalQty);
+    }
+  }
+
+  async function deccart(e) {
+    console.log("yep");
+    if (document.getElementById("numitem").value >= 1) {
+      const data = await fetch(`/reduce/${e}`);
+      // console.log(data.text());
+      if (data.ok) {
+        const js = await data.json();
+        console.log(js);
+        // $('.js-show-cart').data('notify',js.data);
+        // console.log(   $('.js-show-cart').data());
+        if (js.data === null) {
+          $("#cart").html("No data found");
+        } else {
+          $("#cart").html("");
+          document.getElementById("side-cost").innerText =
+            "Total: ₹" + js.data.totalCost;
+
+          js.products.forEach((product) => {
+            if (product != null) {
+              var cartItem =
+                "<div class='cart-item'><div class='img-wrap'><img src='" +
+                product.imagePath +
+                "' alt='' /></div><span>" +
+                product.title +
+                "</span><strong>" +
+                product.qty +
+                "x" +
+                product.price +
+                "</strong><div class='cart-item-border'></div></div>";
+
+              $("#cart .empty").hide();
+              $("#cart").append(cartItem);
+              $("#checkout").fadeIn(500);
+            }
+          });
+        }
+        var mydiv = document.getElementById("js-cart");
+        var mydiv1 = document.getElementById("js-cart1");
+        // document.getElementById("numitem").value = js.data;
+        mydiv.setAttribute("data-notify", js.data);
+        mydiv1.setAttribute("data-notify", js.data);
+      }
+    }
+  }
+
+
+
+
+	
+	function addwishlist(e){
+        console.log('fromhere');
+        var likeditems=(localStorage.getItem('bruhwishitems'));
+        if(likeditems!==null&&likeditems.split(",").includes(e)){
+          var updatedarray=  likeditems.split(",").filter(ele=>{
+                if(ele!==e){
+                    return ele;
+                }else{
+                  if(document.getElementById(`love${ele}`)!==null){
+              document.getElementById(`love${ele}`).classList.add('blackheart'); document.getElementById(`love${ele}`).classList.remove('blueheart');
+                  }
+			let love = document.getElementsByClassName(`love${ele}`);
+            Array.from(love).forEach(elem=>{
+              if (elem !== null) {
+                elem.attributes.fill.nodeValue = "#fff";
+            }
+            })
+                }
+            });
+            localStorage.setItem('bruhwishitems',updatedarray);
+            if(updatedarray.length==0){
+                document.getElementById('dot').style.opacity='0';
+                document.getElementById('dot1').style.opacity='0';
+                localStorage.removeItem('bruhwishitems');
+            }
+         
+            
+        }else{
+        console.log(likeditems);
+        document.getElementById('dot').style.opacity='1';
+        document.getElementById('dot1').style.opacity='1';
+        var wishitems=[e];
+        if(document.getElementById(`love${e}`)!==null)
+                     document.getElementById(`love${e}`).classList.add('blueheart');
+		let love = document.getElementsByClassName(`love${e}`);
+            Array.from(love).forEach(ele=>{
+              if (ele !== null) {
+                ele.attributes.fill.nodeValue = "#000";
+            }
+            })
+        if(likeditems!==null){
+             wishitems=wishitems.concat(likeditems);
+        }
+        
+        localStorage.setItem('bruhwishitems',wishitems);
+        console.log(wishitems,localStorage.getItem("bruhwishitems"));
+        }
+        
+        
+        }
+
+</script>
+<script src="/javascripts/pincode.js"></script>

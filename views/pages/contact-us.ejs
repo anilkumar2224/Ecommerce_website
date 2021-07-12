@@ -1,0 +1,53 @@
+<%- include ../partials/header %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-12 m-auto">
+      <!-- Flash message -->
+      <% if (successMsg != null && successMsg) { %>
+        <div id="success" class="alert alert-success">
+          <%= successMsg %>
+        </div>
+        <% } %>
+    </div>
+  
+
+    <!-- Contact us form -->
+    <div class="col-lg-8 col-md-12 m-auto">
+      <div class="mt-5 mb-4 sign">
+        <h1 class="mt-5 mb-6 sign_h">Get In Touch</h1>
+        <hr class="line">
+        <!-- Error flash message -->
+        <% if(errorMsg!=null && errorMsg.length>0) {%>
+          <div id="flash-msg" class="alert alert-danger">
+            <% errorMsg.forEach((message) => { %>
+            <p>
+              <%=message %>
+            </p>
+            <%}) %>
+          </div>
+          <%}%>
+        <form action="/pages/contact-us" method="POST">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="name" class="form-control" name="name" id="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" name="email" id="email" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Message contents</label>
+            <textarea class="form-control" name="message" id="message" rows="5" placeholder="Please write your message here..." required></textarea>
+          </div>
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+          <button type="submit" class="btn btn-primary button-style mt-2 mb-3">
+            Submit
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include ../partials/footer %>

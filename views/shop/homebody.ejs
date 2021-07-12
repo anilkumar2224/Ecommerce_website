@@ -1,0 +1,688 @@
+<%- include ../partials/homeheader %>
+<style>
+  #work
+
+{
+
+    
+
+    width: 100%;
+
+    height: auto;
+
+}
+
+
+
+#work h3{
+
+    margin-bottom: 20px;
+
+    font-weight: 600;
+
+}
+
+
+
+.workbox{
+
+    padding: 0 50px;
+
+    align-items: center;
+
+    flex-direction: column;
+
+    width: 250px;
+
+    height: auto;
+
+    /* background-color: #BFB5FF; */
+
+}
+
+
+
+.workbox img{
+
+    margin-bottom: 10px;
+
+    width: 150px;
+
+    height: 100px;
+
+}
+
+
+
+.workbox p{
+
+    font-size: 15px;
+
+    margin-top: 10px;
+
+    line-height: 30px;
+
+    text-align: center;
+
+}
+
+.worksample{
+
+    display: flex;
+
+    justify-content: space-evenly;
+	
+	flex-flow: row wrap;
+
+    /* background-color: #FDA4A4; */
+
+}
+
+
+
+.img{
+
+    padding-top: 5px;
+
+    margin-left: 30px;
+
+    margin-right: 20px;
+
+    display: flex;
+
+    justify-content: center;
+
+    min-width: 50px;
+
+    height: 30px;
+
+    background-color: #F3FAFF;
+
+    clip-path: polygon(75% 0%, 97% 50%, 75% 100%, 0% 100%, 7% 49%, 0% 0%);
+
+}
+
+
+
+#workfour img{
+
+    margin-left: 30px;
+
+    width: 80px;
+
+    height: 90px;
+
+}
+
+</style>
+<!-- Slider -->
+<div class="sidebar-links  st-search-bar" style="margin-top: 20px;" >
+  <form action="/products/search" method="GET">
+     <input  style="  " type="text" name="search" placeholder="Search..." value="" autocapitalize="off" autocomplete="off" autocorrect="off">
+ </form>
+
+ </div>
+ <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" >
+  <ol class="carousel-indicators">
+  <%for(var i=0;i<bannerImages.length;i++){%>
+    <%if(i==0){%>
+    <li data-target="#carouselExampleIndicators" data-slide-to="<%=i%>" class="active"></li>
+    <%}else{%>
+      <li data-target="#carouselExampleIndicators" data-slide-to="<%=i%>" ></li>
+      <%}%>
+    <%}%>
+
+  </ol>
+  <div class="carousel-inner" role="listbox">
+    <!-- Slide One - Set the background image for this slide in the line below -->
+    <%for(var i=0;i<bannerImages.length;i++){%>
+   
+    <%if(i==0){%>
+      <div class="carousel-item active" style="background-image: url('<%=bannerImages[i]%>')">
+      </div>
+      <%}else{%>
+        <div class="carousel-item" style="background-image: url('<%=bannerImages[i]%>')">
+        </div>
+        <%}%>
+      <%}%>
+  
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true" style="color: black;"></span>
+        <span class="sr-only">Next</span>
+      </a>
+</div>
+
+
+
+
+<!-- <div class="wrap">
+    <div class="back">
+      <div class="back__slide activee">
+        <div class="progress"></div>
+      </div>
+      <div class="back__slide">
+        <div class="progress"></div>
+       
+      </div>
+    </div>
+    <div class="card">
+      <div class="card__slide activee">
+        <span class="number">01</span>
+      </div>
+      <div class="card__slide">
+        <div class="back-image"></div>
+       <span class="number">02</span>
+      </div>
+      <div class="content">
+        <div class="content__slide activee">
+          <h2 class="title"> <span class="title__line"> <span class="title__inner">Mesmerizing</span></span><span class="title__line"> <span class="title__inner">Depths</span></span></h2>
+          <p class="desc">Nunc orci metus, ornare non molestie ac, ultrices eget <br/> dolor. Mauris ac mattis lectus. Praesent facilisis <br/> malesuada sapien nec pharetra. Fusce eleifend, nisl.</p>
+          <div class="button-wrap"><a class="button">Learn More<span class="button__hover"></span></a></div>
+        </div>
+        <div class="content__slide">
+          <h2 class="title"> <span class="title__line"> <span class="title__inner">Breathtaking</span></span><span class="title__line"> <span class="title__inner">Heights</span></span></h2>
+          <p class="desc">Nunc orci metus, ornare non molestie ac, ultrices eget  <br/> dolor. Mauris ac mattis lectus. Praesent facilisis  <br/> malesuada sapien nec pharetra. Fusce eleifend, nisl.</p>
+          <div class="button-wrap"><a class="button">Learn More<span class="button__hover"></span></a></div>
+        </div>
+        <div class="content__ping content__ping--noanimation"></div>
+      </div>
+    </div>
+  </div> -->
+ 
+
+<!--  Category Banner -->
+
+<div class="sec-banner bg0 p-t-20 "   style="--bgcolor:rgba(48,143,255,0.1); --bgcolor2:rgba(48,143,255,0);background: linear-gradient( 
+  180deg
+   ,var(--bgcolor),var(--bgcolor2));" >
+ 
+    <div class="container">
+      
+        <div class="block-header flex">
+         
+          <div class="mr-auto" style="justify-content: center;text-align: center;" ><h2 class="block-header-heading" style="font-weight: 600;justify-content: center;">Category to shop</h2>
+      <div class="row" style="justify-content: center;">
+        <% if (categories) {
+         for(let i=0; i<categories.length; i++){ %>
+        <div   style="">
+          <!-- Block1 -->
+          <div class="block1 wrap-pic-w">
+            <img src="images/gallery-<%=i%>.jpg" alt="IMG-BANNER">
+  
+            <a href="/products/category/<%=categories[i].slug%>" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+              <div class="block1-txt-child1 flex-col-l">
+                <span class="block1-info ltext-42 trans-08 p-b-8" style="color:white;font-weight: 600;">
+                  <%=categories[i].title%>
+                </span>
+  
+                <!-- <span class="block1-info stext-102 trans-04">
+                  Spring 2018
+                </span> -->
+              </div>
+  
+              <div class="block1-txt-child2 p-b-4 trans-05">
+                <div class="block1-link stext20 cl0 trans-09">
+                  Shop Now
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+  
+      
+  
+        <%} %>
+        <%}%>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<!--Bruh Products -->
+<section class="bg0 " style="background-color: #eaeded ;">
+    <div class="container" >
+ 
+
+        <section class="sec-relate-product bg0  ">
+          <div class="container">
+              <div class="block-header flex"><div class="mr-auto" style="display: flex;flex-direction: column;text-align: left;"><h2 class="block-header-heading">New Arrivals </h2><p class="block-header-info">Most loved items on our Shop</p></div></div>
+  
+              <!-- Slide1 -->
+              <div class="wrap-slick2">
+                  <div class="slick2">
+                      <% for(var i=0;i<newArrivals.length;i++){ %>
+                      <div class="item-slick2  p-t-15 p-b-15" >
+                          <!-- Block2 -->
+                   <div class="product" style="z-index: 1;margin: 0 auto;"> 
+                     <div class="make3D" style="transition: all 100ms ease-out 0s;">
+                    <div class="product-front" style="display: block;">
+                        <div>
+                            <a role="button" class="favourite-icon" onclick="addwishlist(`<%=newArrivals[i]._id%>`)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 29 24"><path class="love<%=newArrivals[i]._id%>" fill="#fff" stroke="#000" stroke-width="1.826" d="M14.617 21.99l-.058-.029a34.366 34.366 0 0 1-1.923-1.036 36.172 36.172 0 0 1-4.452-3.05l-.002-.001C3.83 14.386 1.787 10.747 1.854 7.37v-.035L1.852 7.3c-.097-1.745.552-3.357 1.744-4.497v-.001C4.72 1.725 6.32 1.117 8.06 1.117c1.283 0 2.498.498 3.546 1.167a12.346 12.346 0 0 1 2.342 1.98l.67.72.668-.72c.477-.514 1.298-1.314 2.342-1.98 1.049-.669 2.264-1.167 3.547-1.167 1.776 0 3.34.607 4.463 1.686h.001c1.182 1.133 1.809 2.711 1.742 4.55v.052c.067 3.341-1.976 6.98-6.328 10.469l-.001.001a36.533 36.533 0 0 1-6.378 4.086l-.057.028z"></path></svg></a>
+                        </div>
+                       
+                     
+                        <div style="width:200px;height:200px;margin-top: 5px; " class="image_wrapper">
+                          <img  style="width: 100%; height: -webkit-fill-available;
+                      
+                          object-fit: contain;margin:0 auto;" src="<%-newArrivals[i].imagePath[0]%>" alt="">
+                    </div>
+                       
+                        <div class="add_to_cart" onclick="addtocart('<%=newArrivals[i]._id%>')">
+                          <i class="fa fa-shopping-cart"></i>
+                        </div>
+                         <a href="/products/<%=newArrivals[i]._id%>" style="color: #fff;">
+                            <div class="view_gallery">
+                              <i class="fa fa-eye"></i></div> 
+                        </a>               
+                        <div class="stats">        	
+                            <div class="stats-container">
+                              <div style="display: flex;flex-direction: row;justify-content: flex-start;">
+
+                                <span class="product_price" >₹<%=newArrivals[i].price%></span>
+                                
+                                <span class="product_price mrp" style="color: #666;font-size: 12px;margin-top: 2px;text-align: center;margin-left: 10px;"><del>₹<%=newArrivals[i].mrpPrice%></del></span>
+                                <%if(newArrivals[i].discount){%>
+                                  <span class="product_price " style="color: #f30;margin-left: 10px;font-size: 12px;margin-top: 2px;text-align: center;"><%=newArrivals[i].discount%></span>
+                                  <%}%>
+                              </div>
+                           
+                              <div class="elipse">
+                                <span class="product_name"><%=newArrivals[i].title%></span>    
+                              </div>
+                                                     
+                           </div>                         
+                        </div>
+                    </div>
+                    
+                    
+                </div>	
+                           
+                    
+                          </div>
+                      </div>
+                    <%}%>
+                    
+                  </div>
+              </div>
+
+             
+
+
+
+
+
+          </div>
+      </section>
+
+      <section class="sec-relate-product bg0  ">
+        <div class="container">
+          <div class="block-header flex"><div class="mr-auto" style="display: flex;flex-direction: column;text-align: left;"><h2 class="block-header-heading">Brands in Focus</h2><p class="block-header-info">MensXP Recommends</p></div></div>
+          <div class="brandshr">
+            <div class="card-wrap">
+          <div>
+          <a class="card" style="background-image: url('https://source.unsplash.com/600x600/?Tokyo,home')" href="#">
+          <div class="card__overlay"></div>
+          <div class="card__info">
+            <div class="card__title">Tokyo</div>
+            <div class="card__text">$119/night average</div>
+          </div></a>
+          </div>
+          <div>
+          <a class="card" style="background-image: url('https://source.unsplash.com/600x600/?Paris,home')" href="#">
+          <div class="card__overlay"></div>
+          <div class="card__info">
+            <div class="card__title">Paris</div>
+            <div class="card__text">$76/night average</div>
+          </div></a>
+           </div>
+ 
+          <div>
+      <a class="card" style="background-image: url('https://source.unsplash.com/600x600/?Miami,home')" href="#">
+          <div class="card__overlay"></div>
+          <div class="card__info">
+            <div class="card__title">Miami</div>
+            <div class="card__text">$67/night average</div>
+          </div></a>
+         </div>
+         <div> 
+          
+          <a class="card" style="background-image: url('https://source.unsplash.com/600x600/?Sydney,home')" href="#">
+          <div class="card__overlay"></div>
+          <div class="card__info">
+            <div class="card__title">Sydney</div>
+            <div class="card__text">$88/night average</div>
+          </div></a>
+         </div>
+         <div>
+          <a class="card" style="background-image: url('https://source.unsplash.com/600x600/?Tehran,home')" href="#">
+          <div class="card__overlay"></div>
+          <div class="card__info">
+            <div class="card__title">Tehran</div>
+            <div class="card__text">$102/night average</div>
+          </div></a>
+      </div>
+      <div>
+          <a class="card" style="background-image: url('https://source.unsplash.com/600x600/?Montreal,home')" href="#">
+          <div class="card__overlay"></div>
+          <div class="card__info">
+            <div class="card__title">Montreal</div>
+            <div class="card__text">$96/night average</div>
+          </div></a>
+      </div>
+      <div>
+          <a class="card" style="background-image: url('https://source.unsplash.com/600x600/?Munich,home')" href="#">
+          <div class="card__overlay"></div>
+          <div class="card__info">
+            <div class="card__title">Munich</div>
+            <div class="card__text">$83/night average</div>
+          </div></a>
+      </div>
+      <div>
+          <a class="card" style="background-image: url('https://source.unsplash.com/600x600/?Maui,home')" href="#">
+          <div class="card__overlay"></div>
+          <div class="card__info">
+            <div class="card__title">Maui</div>
+            <div class="card__text">$112/night average</div>
+          </div></a>
+      </div>
+     
+                </div>
+              </div>
+        </div>
+        </section>
+        <!--bruh Brands -->
+       
+
+
+
+        <!--Best In Bruh -->
+       
+        <section class="sec-relate-product bg0  ">
+            <div class="container">
+                <div class="block-header flex"><div class="mr-auto" style="display: flex;flex-direction: column;text-align: left;"><h2 class="block-header-heading">Best In Bruh </h2><p class="block-header-info">Most loved items on our Shop</p></div></div>
+             
+                
+                <!-- Slide2 -->
+                <div class="wrap-slick2">
+                  <div class="slick2">
+                      <% for(var i=0;i<bestInBruh.length;i++){ %>
+                      <div class="item-slick2  p-t-15 p-b-15" >
+                          <!-- Block2 -->
+                   <div class="product" style="z-index: 1;margin: 0 auto;"> 
+                     <div class="make3D" style="transition: all 100ms ease-out 0s;">
+                      <div class="product-front" style="display: block;">
+                        <div>
+                            <a role="button" class="favourite-icon" onclick="addwishlist(`<%=bestInBruh[i]._id%>`)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 29 24"><path class="love<%=bestInBruh[i]._id%>" fill="#fff" stroke="#000" stroke-width="1.826" d="M14.617 21.99l-.058-.029a34.366 34.366 0 0 1-1.923-1.036 36.172 36.172 0 0 1-4.452-3.05l-.002-.001C3.83 14.386 1.787 10.747 1.854 7.37v-.035L1.852 7.3c-.097-1.745.552-3.357 1.744-4.497v-.001C4.72 1.725 6.32 1.117 8.06 1.117c1.283 0 2.498.498 3.546 1.167a12.346 12.346 0 0 1 2.342 1.98l.67.72.668-.72c.477-.514 1.298-1.314 2.342-1.98 1.049-.669 2.264-1.167 3.547-1.167 1.776 0 3.34.607 4.463 1.686h.001c1.182 1.133 1.809 2.711 1.742 4.55v.052c.067 3.341-1.976 6.98-6.328 10.469l-.001.001a36.533 36.533 0 0 1-6.378 4.086l-.057.028z"></path></svg></a>
+                        </div>
+                       
+                     
+                        <div style="width: 200px;height: 200px;margin-top: 5px; " class="image_wrapper">
+                          <img  style="width: 100%; height: -webkit-fill-available;
+                      
+                          object-fit: contain;margin:0 auto;" src="<%-bestInBruh[i].imagePath[0]%>" alt="">
+                    </div>
+                       
+                        <div class="add_to_cart" onclick="addtocart('<%=bestInBruh[i]._id%>')">
+                          <i class="fa fa-shopping-cart"></i>
+                        </div>
+                         <a href="/products/<%=bestInBruh[i]._id%>" style="color: #fff;">
+                            <div class="view_gallery">
+                              <i class="fa fa-eye"></i></div> 
+                        </a>               
+                        <div class="stats">        	
+                            <div class="stats-container">
+                              <div style="display: flex;flex-direction: row;justify-content: flex-start;">
+
+                                <span class="product_price" >₹<%=bestInBruh[i].price%></span>
+                                <span class="product_price mrp" style="color: #666;font-size: 12px;margin-top: 2px;text-align: center;margin-left: 10px;"><del>₹<%=bestInBruh[i].mrpPrice%></del></span>
+                                <%if(bestInBruh[i].discount){%>
+                                  <span class="product_price " style="color: #f30;margin-left: 10px;font-size: 12px;margin-top: 2px;text-align: center;"><%=bestInBruh[i].discount%></span>
+                                  <%}%>
+                                </div>
+                              <div class="elipse">
+
+                                <span class="product_name"><%=bestInBruh[i].title%></span>    
+                              </div>
+                                                     
+                           </div>                         
+                        </div>
+                    </div>
+                    
+                    
+                </div>	
+                           
+                    
+                          </div>
+                      </div>
+                    <%}%>
+                    
+                  </div>
+              </div>
+
+
+             
+
+              
+            </div>
+        </section>
+
+        <section class="sec-relate-product bg0  ">
+          <div class="container">
+            <div class="block-header flex"><div class="mr-auto" style="display: flex;flex-direction: column;text-align: left;"><h2 class="block-header-heading">Trending</h2><p class="block-header-info">Bruh trending products</p></div></div>
+            <div class="wrap-slick2">
+               <div class="slick2">
+                   <% for(var i=0;i<trending.length;i++){ %>
+                   <div class="item-slick2  p-t-15 p-b-15" >
+                       <!-- Block2 -->
+                <div class="product" style="z-index: 1;margin: 0 auto;"> 
+                  <div class="make3D" style="transition: all 100ms ease-out 0s;">
+                    <div class="product-front" style="display: block;">
+                      <div>
+                          <a role="button" class="favourite-icon" onclick="addwishlist(`<%=trending[i]._id%>`)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 29 24"><path class="love<%=trending[i]._id%>" fill="#fff" stroke="#000" stroke-width="1.826" d="M14.617 21.99l-.058-.029a34.366 34.366 0 0 1-1.923-1.036 36.172 36.172 0 0 1-4.452-3.05l-.002-.001C3.83 14.386 1.787 10.747 1.854 7.37v-.035L1.852 7.3c-.097-1.745.552-3.357 1.744-4.497v-.001C4.72 1.725 6.32 1.117 8.06 1.117c1.283 0 2.498.498 3.546 1.167a12.346 12.346 0 0 1 2.342 1.98l.67.72.668-.72c.477-.514 1.298-1.314 2.342-1.98 1.049-.669 2.264-1.167 3.547-1.167 1.776 0 3.34.607 4.463 1.686h.001c1.182 1.133 1.809 2.711 1.742 4.55v.052c.067 3.341-1.976 6.98-6.328 10.469l-.001.001a36.533 36.533 0 0 1-6.378 4.086l-.057.028z"></path></svg></a>
+                      </div>
+                     
+                   
+                      <div style="width: 200px;height: 200px;margin-top: 5px; " class="image_wrapper">
+                        <img  style="width: 100%; height: -webkit-fill-available;
+                      
+                        object-fit: contain;margin:0 auto;" src="<%-trending[i].imagePath[0]%>" alt="">
+                  </div>
+                     
+                      <div class="add_to_cart" onclick="addtocart('<%=trending[i]._id%>')">
+                        <i class="fa fa-shopping-cart"></i>
+                      </div>
+                       <a href="/products/<%=trending[i]._id%>" style="color: #fff;">
+                          <div class="view_gallery">
+                            <i class="fa fa-eye"></i></div> 
+                      </a>               
+                      <div class="stats">        	
+                          <div class="stats-container">
+                            <div style="display: flex;flex-direction: row;justify-content: flex-start;">
+
+                              <span class="product_price" >₹<%=trending[i].price%></span>
+                              <span class="product_price mrp" style="color: #666;font-size: 12px;margin-top: 2px;text-align: center;margin-left: 10px;"><del>₹<%=trending[i].mrpPrice%></del></span>
+                              <%if(trending[i].discount){%>
+                                <span class="product_price " style="color: #f30;margin-left: 10px;font-size: 12px;margin-top: 2px;text-align: center;"><%=trending[i].discount%></span>
+                                <%}%>
+                              </div>
+                              <div class="elipse">
+
+                              <span class="product_name"><%=trending[i].title%></span>    
+                              </div>
+                                                   
+                         </div>                         
+                      </div>
+                  </div>
+                 
+                 
+             </div>	
+                        
+                 
+                       </div>
+                   </div>
+                 <%}%>
+                 
+               </div>
+           </div>
+          </div></section>
+
+          <section class="sec-relate-product bg0 m-t-40  ">
+            <div class="container">
+
+      <div id="work">
+              <h3>How Does It Work</h3>
+              <div class="worksample">
+      
+                  <div id="workone" class="workbox">
+                      <img src="https://tutedude.com/assets/images/sab.jpg" alt="">
+                      <div class="img" style="color:black">Learn</div>
+                      <p>Learn from the premium content at your own pace and time</p>
+                  </div>
+      
+                  <div id="worktwo" class="workbox">
+                      <img src="https://tutedude.com/assets/images/doubt.jpg" alt="">
+                      <div class="img" style="color:black">Doubt</div>
+                      <p>Get your doubt solved in minutes by your mentor over a live chat</p>
+                  </div>
+                  <div id="workthree" class="workbox">
+                      <img src="https://tutedude.com/assets/images/email.jpg" alt="">
+                      <div class="img" style="color:black">Projects</div>
+                      <p>Work on some killer projects while doing the course</p>
+                  </div>
+                  <div id="workfour" class="workbox">
+                      <img src="https://tutedude.com/assets/images/certificate.png" alt="">
+                      <div class="img" style="color:black">Certificate</div>
+                      <p>Get certified by Tutedude after you complete the course.</p>
+                  </div>
+              </div>
+          </div>
+            </div></section>
+
+ <!--bruh Services -->
+
+
+
+       
+ 
+
+
+
+     <!--bruh Trendings -->
+       
+     
+
+            
+        <!--bruh Specials -->
+        <!-- <div class="block-header flex"><div class="mr-auto"><h2 class="block-header-heading">Bruh Specials</h2><p class="block-header-info">Best Deals on latest trends</p></div></div> 
+
+        <div class="masonry">
+            <div class="item">
+           
+              <img src="http://www.pixeden.com/media/k2/galleries/468/001-business-card-clip-brand-mock-up-vol-20-psd.jpg">
+              Bold Care
+            </div>
+            <div class="item">
+             
+              <img src="http://www.graphicsfuel.com/wp-content/uploads/2015/11/branding-mockup-psd.jpg">
+              Fraternity
+            </div>
+            <div class="item">
+             
+              <img src="http://www.pixeden.com/media/k2/galleries/511/001-business-card-mockup-vol-22-box-brand-psd.jpg">
+              Muscle Asylum
+            </div>
+            <div class="item">
+             
+               <img src="https://blog.spoongraphics.co.uk/wp-content/uploads/2013/mockup/23.jpg">
+               Healthvit
+            </div>
+           
+            
+          
+          
+          </div> -->
+          
+
+
+ 
+
+      
+       
+      
+ <!--bruh You May Like -->
+        <section class="sec-relate-product bg0 p-b-30">
+            <div class="container">
+                <div class="block-header flex"><div class="mr-auto"style="display: flex;flex-direction: column;text-align: left;"><h2 class="block-header-heading">You May Like</h2><p class="block-header-info">BRUH Recommends</p></div></div>
+    
+                <!-- Slide4 -->
+                <div class="wrap-slick2">
+                  <div class="slick2">
+                      <% for(var i=0;i<youMayLike.length;i++){ %>
+                      <div class="item-slick2  p-t-15 p-b-15" >
+                          <!-- Block2 -->
+                          <div class="product" style="z-index: 1;margin: 0 auto;"> 
+                            <div class="make3D" style="transition: all 100ms ease-out 0s;">
+                          <div class="product-front" style="display: block;">
+                            <div>
+                                <a role="button" class="favourite-icon" onclick="addwishlist(`<%=youMayLike[i]._id%>`)"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 29 24"><path class="love<%=youMayLike[i]._id%>" fill="#fff" stroke="#000" stroke-width="1.826" d="M14.617 21.99l-.058-.029a34.366 34.366 0 0 1-1.923-1.036 36.172 36.172 0 0 1-4.452-3.05l-.002-.001C3.83 14.386 1.787 10.747 1.854 7.37v-.035L1.852 7.3c-.097-1.745.552-3.357 1.744-4.497v-.001C4.72 1.725 6.32 1.117 8.06 1.117c1.283 0 2.498.498 3.546 1.167a12.346 12.346 0 0 1 2.342 1.98l.67.72.668-.72c.477-.514 1.298-1.314 2.342-1.98 1.049-.669 2.264-1.167 3.547-1.167 1.776 0 3.34.607 4.463 1.686h.001c1.182 1.133 1.809 2.711 1.742 4.55v.052c.067 3.341-1.976 6.98-6.328 10.469l-.001.001a36.533 36.533 0 0 1-6.378 4.086l-.057.028z"></path></svg></a>
+                            </div>
+                           
+                         
+                            <div style="width: 200px;height: 200px;margin-top: 5px; " class="image_wrapper">
+                              <img  style="width: 100%; height: -webkit-fill-available;
+                      
+                              object-fit: contain;margin:0 auto;" src="<%-youMayLike[i].imagePath[0]%>" alt="">
+                        </div>
+                           
+                            <div class="add_to_cart" onclick="addtocart('<%=youMayLike[i]._id%>')">
+                              <i class="fa fa-shopping-cart"></i>
+                            </div>
+                             <a href="/products/<%=youMayLike[i]._id%>" style="color: #fff;">
+                                <div class="view_gallery">
+                                  <i class="fa fa-eye"></i></div> 
+                            </a>               
+                            <div class="stats">        	
+                                <div class="stats-container">
+                                  <div style="display: flex;flex-direction: row;justify-content: flex-start;">
+      
+                                    <span class="product_price" >₹<%=youMayLike[i].price%></span>
+                                    <span class="product_price mrp" style="color: #666;font-size: 12px;margin-top: 2px;text-align: center;margin-left: 10px;"><del>₹<%=youMayLike[i].mrpPrice%></del></span>
+                                    <%if(youMayLike[i].discount){%>
+                                      <span class="product_price" style="color: #f30;margin-left: 10px;font-size: 12px;margin-top: 2px;text-align: center;"><%=youMayLike[i].discount%></span>
+                                      <%}%>
+                                    </div>
+                              <div class="elipse">
+
+                                    <span class="product_name"><%=youMayLike[i].title%></span>    
+                              </div>
+                                                         
+                               </div>                         
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                    <%}%>
+                    
+                  </div>
+              </div>
+            </div>
+        </section>
+
+</section>
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+</head>
+
+
+
+
+
+<%- include ../partials/homefooter %>

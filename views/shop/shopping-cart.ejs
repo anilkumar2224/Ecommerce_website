@@ -1,0 +1,271 @@
+<%- include ../partials/homeheader %>
+<link rel="stylesheet" href="/stylesheets/shoppingcartcss/style.css" />
+<div class="wrapcart" id="">
+   <% if(errorMsg !=null && errorMsg.length>0) {%>
+    <div id="flash-msg" class="alert alert-danger"><%=errorMsg %></div>
+    <%}%>
+  <header class="cart-header cf">
+    <strong>Items in Your Cart</strong>
+
+  </header>
+
+  <div class="cart-table">
+    <ul id="cart-items-shoppingcart">
+      <!-- begin simple product -->
+      <!-- <li class="cartitem">
+        <div class="cartitem-main cf">
+          <div class="cartitem-block ib-info cf">
+            <img class="product-img" src="" />
+            <div class="ib-info-meta">
+              <span class="title">Drink Up Nalgene Water Bottle</span>
+              <span class="cartitemno">#3498765</span>
+            </div>
+          </div>
+          <div class="cartitem-block ib-qty">
+            <input type="text" value="3" class="qty" />
+            <span class="price"><span>x</span> $25.00</span>
+          </div>
+          <div class="cartitem-block ib-total-price">
+            <span class="tp-price">$75.00</span>
+            <span class="tp-remove"><i class="i-cancel-circle"></i></span>
+          </div>
+        </div>
+        <div class="cartitem-foot cf">
+          <div class="if-left"><span class="if-status">In Stock</span></div>
+          <div class="if-right">
+              class="blue-link"
+              >Add to Wishlist</span
+            >
+          </div>
+        </div>
+      </li> -->
+      <!-- end simple product -->
+
+      <!-- begin variation product w/ option -->
+      <% if(products!=null){%>
+      <% products.forEach( product => { %> <% if(product != null) {%>
+
+      <li class="cartitem">
+        <div class="cartitem-main cf">
+          <div class="cartitem-block ib-info cf">
+            <a href="/products/<%=product.category.slug%>/<%=product._id%>">
+              <img class="product-img" src="<%=product.imagePath%>" />
+            </a>
+            <div class="ib-info-meta">
+              <span class="title"><%= product.title %></span>
+              <!-- <span class="cartitemno"><%= product.productCode %></span> -->
+              <span class="styles">
+                <span
+                  ><strong>Name</strong
+                  >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:&nbsp<%= product.title
+                  %></span
+                >
+                <span
+                  ><strong>Product No</strong
+                  >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:&nbsp<%=
+                  product.productCode %></span
+                >
+                <span
+                  ><strong>Manufacturer</strong>&nbsp:&nbsp<%=
+                  product.manufacturer %></span
+                >
+              </span>
+            </div>
+          </div>
+          <div class="cartitem-block ib-qty">
+        <a href="/increase/<%=product._id%>"
+              ><i class="fa fa-plus" ></i>
+            </a>
+           
+            <input
+              type="text"
+              value="<%=product.qty%>"
+              class="qty"
+              id="numitem"
+              readonly
+            />
+            <a href="/decrease/<%= product._id%>"
+              ><i class="fa fa-minus" ></i
+            ></a> 
+
+
+     
+          
+            <span class="price"><span>x</span> ₹<%= product.price %></span>
+          </div>
+          <div class="cartitem-block ib-total-price">
+            <span class="tp-price">= ₹<%= product.totalPrice %></span>
+            <span class="tp-remove"><i class="i-cancel-circle"></i></span>
+          </div>
+        </div>
+        <div class="cartitem-foot cf">
+          <div class="if-message">
+    <p>*minimum cash on delivery amount for this product : ₹<%= product.codprepaid%></p>
+          </div>
+          <div class="if-left">
+            <% if(product.available) {%>
+              <span class="if-status" style="color: green;">
+                In stock
+              </span>
+             
+              <% } else { %>
+                <span class="if-status" style="color: red;">
+                  Out of stock
+                </span>
+              <%} %>
+        </div>
+          <div class="if-right">
+            <div class="blue-link js-addwish-detail tooltip100" onclick="addwishlist(`<%=product._id%>`)" data-tooltip="Add to Wishlist" id="love<%=product._id%>">Add to Wishlist</div>
+          </div>
+          <div class="if-right">
+            <a href="/removeAll/<%=product._id%>">
+
+              <div style="padding-right: 15px; color: crimson;" class="blue-link js-addwish-detail tooltip100"  data-tooltip="Remove All" >
+                Remove All</div>
+              </a>
+          </div>
+        </div>
+      </li>
+      <% } %> <% }) %>
+      <% }else{%>
+          <li style="text-align: center;
+           ">
+          
+          <h1 style="line-height: 50vh;">Your Cart is empty</h1></li>
+          <a href="/">
+            <span class=" blue-link" style="font-size: 14px;"
+              ><i class="fa fa-angle-left"></i> Continue Shopping</span
+            ></a>
+          <%}%>
+      <!-- end variation product w/ option -->
+
+      <!-- begin bundle product -->
+
+      <!-- end bundle product -->
+    </ul>
+  </div>
+  <%if(cart!=null){%>
+  <div class="sub-table cf">
+    <div class="summary-block">
+      <div class="sb-promo">
+     
+          <input type="text" id="couponcode" name="couponcode" placeholder="Enter Promo Code" />
+          <button class="btn" id="btn_check" >Apply</button>
+       
+      
+      </div>
+      <ul>
+        <li class="subtotal">
+          <span class="sb-label">Subtotal</span
+          ><span class="sb-value">₹<%=cart.totalCost%></span>
+        </li>
+        <li class="shipping">
+          <span class="sb-label">Shipping</span
+          ><span class="sb-value">+(₹<%=charge%>)</span>
+        </li>
+       
+          <li class="shipping none" id="discount">
+            <span class="sb-label">Discount</span
+            ><span class="sb-value" id="pricedrop"></span>
+          </li>
+     
+        
+        <li class="tax-calculate">
+          <input type="text" value="06484" class="tax" /><span class="btn"
+            >Calculate</span
+          >
+        </li>
+        <li class="grand-total">
+          <span class="sb-label">Total</span
+          ><span class="sb-value" id="bill">₹<%=total%></span>
+        </li>
+      </ul>
+    </div>
+    <div class="copy-block">
+      <p>
+        cartitems will be saved in your cart for 30 days. To save cartitems
+        longer, add them to your <a href="#">Wish List</a>.
+      </p>
+      <p class="customer-care">
+        Call us M-F 8:00 am to 6:00 pm EST<br />
+        (877)-555-5555 or <a href="#">contact us</a>. <br />
+      </p>
+    </div>
+  </div>
+
+  <div class="cart-footer cf">
+    <%if(!status){%>
+      <a href="#" >
+        <span class="btn tooltip100"data-tooltip="out of stock" style="cursor:no-drop ;">Checkout</span>
+        </a>
+    <%}else{%>
+      <a href="/checkout">
+        <span class="btn">Checkout</span>
+        </a>
+    <%}%>
+    <a href="/">
+    <span class=" blue-link" style="font-size: 14px;"
+      ><i class="fa fa-angle-left"></i> Continue Shopping</span
+    ></a>
+  </div>
+  <%}%>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<%- include ../partials/homefooter %>
+<%if(cart!=null){%>
+<script>
+  document.getElementById('btn_check').addEventListener('click',async()=>{
+    console.log("error");
+    var login = "<%=login%>"
+    if(login!="false"){
+    var coupon=document.getElementById('couponcode').value;
+    var bill=document.getElementById('bill');
+ 
+ 
+      var intialbill="<%=cart.totalCost%>";
+  
+    var data={
+      totalCost:intialbill,
+      couponcode:coupon,
+      charge:"<%=charge%>",
+      _csrf : "<%=csrfToken%>"
+    }
+  
+    const response = await fetch('/checkcoupon', {
+    method: 'POST', // *GET, POST, PUT, DELETE, etc.
+    mode: 'cors', // no-cors, *cors, same-origin
+    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: 'same-origin', // include, *same-origin, omit
+    headers: {
+      'Content-Type': 'application/json'
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    redirect: 'follow', // manual, *follow, error
+    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    body: JSON.stringify(data) // body data type must match "Content-Type" header
+  });
+  
+  if( response.ok){   
+     const js = await response.json();
+     document.getElementById('discount').classList.remove('none');
+     document.getElementById('pricedrop').innerText='-₹('+(js.pricedrop)+')';
+     document.getElementById('bill').innerText='₹'+js.total;
+
+  }
+    }else{
+      alert("Please Login to apply Coupon Code")
+    }
+    })
+</script>
+<%}%>

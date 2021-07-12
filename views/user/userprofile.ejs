@@ -1,0 +1,181 @@
+<%- include ../partials/homeheader %>
+<link rel="stylesheet" href="/stylesheets/profile.css" />
+
+<section class="bg0 p-b-30">
+  <div>
+    <div
+      class="categories-thumbs category-stories"
+      style="
+        --bgcolor: rgba(48, 143, 255, 0.1);
+        --bgcolor2: rgba(48, 143, 255, 0);
+        position: relative;
+      "
+    >
+      <div class="container">
+        <div class="set-inline">
+          <div class="category-strip">
+            <div class="bredcrumb">
+              <ul>
+                <li>
+                  <a href="/">Home</a>
+                  <span class="b-arrow"
+                    ><svg
+                      width="7"
+                      height="12"
+                      viewBox="0 0 7 12"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M0 2.107L4.351 6.4 0 10.693 1.324 12 7 6.4 1.324.8 0 2.107z"
+                        fill="#212121"
+                      ></path>
+                      </svg ></span>
+                </li>
+
+                <li class="active">
+                  <a role="button">Profile</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% if (successMsg) { %>
+  <div
+    id="success"
+    class="alert alert-success"
+    style="text-align: center; margin: 0 auto; width: 50%"
+  >
+    <%=successMsg %>
+  </div>
+  <%}%> <% if(errorMsg !=null && errorMsg.length>0) {%>
+  <div id="flash-msg" class="alert alert-danger"><%=errorMsg %></div>
+  <%}%>
+  <div class="pcontainer" style="width: 97vw;">
+    <div class="piphone">
+      <div class="pheader">
+        <div class="pheader-summary">
+          <div class="psummary-text">
+            <h2><span>HI!</span> <%=currentUser.username%></h2>
+          </div>
+
+          <div class="psummary-text-2">
+            <i class="fa fa-user" style="color: orange"></i>
+            <%=currentUser.email%>
+          </div>
+        </div>
+        <div class="puser-profile"></div>
+      </div>
+      <div class="pcontent">
+        <div
+          style="
+            position: relative;
+            margin-left: 30px;
+            margin-top: 20px;
+            font-size: 20px;
+          "
+        >
+          My Orders
+        </div>
+        <% if (orders != null && orders.length > 0) { %>
+        <%orders.forEach(order=> { %>
+        <div class="pcard" style="margin-bottom: 50px">
+          <% order.cart.items.forEach( item => { %>
+          <div class="pupper-row">
+            <div class="pcard-item">
+              <% if(item.productId!=null && item.productId.imagePath!=null){%>
+              <img
+                src="<%=item.productId.imagePath%>"
+                style="
+                  width: 85px;
+                  height: 85px;
+                  border: 1px solid orange;
+                  object-fit: cover;
+                "
+              />
+              <%}else{%>
+              <img src="#" />
+              <%}%>
+            </div>
+            <div class="pcard-item">
+              <span><%= item.title %> </span>
+              <span><%= item.qty %> Units </span>
+            </div>
+            <div class="pcard-item">
+              <span>Price</span>
+              <span>₹ <%= item.price %></span>
+            </div>
+          </div>
+          <%}) %>
+          <div class="plower-row">
+            <div class="picon-item">
+              <div class="picon"><i class="fa fa-money"></i></div>
+              <div class="picon-text">
+                <% if(order.orderType=="COD"){ %>
+                Total Price paid: ₹ <%= order.cart.totalcodprepaid %>&nbsp&nbsp&nbsp&nbsp&nbsp
+                Price to be paid: ₹ <%= order.cart.totalCost-order.cart.totalcodprepaid %>
+                <%}%>
+                <% if(order.orderType=="PREPAID"){ %>
+                  Total Price paid: ₹ <%= order.cart.totalCost %>&nbsp&nbsp&nbsp&nbsp&nbsp
+                  Price to be paid: ₹ 0
+                  <%}%>
+              </div>
+            </div>
+            <!-- <div class="picon-item">
+                <div class="picon"><i class="fas fa-money-check-alt"></i></div>
+                <div class="picon-text">Withdraw</div>
+              </div>
+              <div class="picon-item">
+                <div class="picon"><i class="fal fa-paper-plane"></i></div>
+                <div class="picon-text">Send</div>
+              </div> -->
+            <form action="/user/trackorder" method="get">
+              <input type="hidden" name="id" value="<%=order.paymentId%>" />
+              <input
+                type="hidden"
+                name="amount"
+                value="<%=order.cart.totalCost%>"
+              />
+              <!-- <input type="hidden" name="_csrf" value="<%=csrfToken%>"> -->
+
+              <div class="picon-item">
+                <div class="picon"><i class="fa fa-info-circle"></i></div>
+                <button class="picon-text" type="submit">view details</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <%}) %> <%} else { %>
+        <h3 class="text-center " style="margin: 50px !important;font-size: 14px;">You have not made any orders yet</h3>
+        <%} %>
+
+        <div class="ptransactions">
+          <span class="t-desc" style="font-size: 20px">My Consultants</span>
+          <% if (meets != null && meets.length > 0) { %>
+          <%meets.forEach(meet=>{%>
+          <div class="ptransaction">
+            <div class="pt-icon-container">
+              <img src="/images/healthcare.jpg" class="pt-icon" />
+            </div>
+            <div class="pt-details">
+              <div class="pt-title"><%=meet.problemtype%></div>
+              <div class="pt-time"><%=meet.timeslot%></div>
+            </div>
+            <div class="pt-amount"><%=meet.status%></div>
+          </div>
+          <%}) %> <%} else { %>
+          <h3 class="text-center" style="margin: 50px !important;font-size: 14px;">
+            You have not taken any Consultant session yet
+          </h3>
+          <%} %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<%- include ../partials/homefooter %>

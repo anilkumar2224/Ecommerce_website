@@ -1,0 +1,238 @@
+<%- include ../partials/homeheader %>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    />
+
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <!-- Place favicon.ico in the root directory -->
+
+    <title>BRUH || Blogs</title>
+
+    <link
+      media="all"
+      type="text/css"
+      href="http://fonts.googleapis.com/css?family=Open+Sans:100,200,300,400,500,600,700,800,900"
+      rel="stylesheet"
+    />
+    <link
+      media="all"
+      type="text/css"
+      href="/stylesheets/singleblogcss/font-awesome.min.css"
+      rel="stylesheet"
+    />
+    <link
+      media="all"
+      type="text/css"
+      href="/stylesheets/singleblogcss/core.css"
+      rel="stylesheet"
+    />
+    <link
+      media="all"
+      type="text/css"
+      href="/stylesheets/singleblogcss/skins/red.css"
+      rel="stylesheet"
+    />
+    <link
+      media="all"
+      type="text/css"
+      href="/stylesheets/singleblogcss/custom.css"
+      rel="stylesheet"
+    />
+    <link href="/bloglib/animate/animate.min.css" rel="stylesheet" />
+    <link href="/bloglib/flaticon/font/flaticon.css" rel="stylesheet" />
+    <link
+      href="/bloglib/owlcarousel/assets/owl.carousel.min.css"
+      rel="stylesheet"
+    />
+    <link href="/bloglib/lightbox/css/lightbox.min.css" rel="stylesheet" />
+
+    <!-- Template Stylesheet -->
+    <!-- <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+      integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+      crossorigin="anonymous"
+    ></script> -->
+    <link href="/stylesheets/blogcss/style.css" rel="stylesheet" />
+  </head>
+  <body class="home" itemscope itemtype="http://schema.org/WebPage">
+    <div class="page-header">
+   
+      <div class="row" style="position: absolute;top: 50%;left:50%;transform: translate(-50%,-50%);">
+        <div class="col-12">
+          <h2 style="color: white;font-size: 50px;">BRUH Blogs</h2>
+        </div>
+     
+        <div class="blog-blogs-menu">
+          <a class="dropdown-item" href="/blog" style="color: white;" >All Blogs</a>
+          <a class="dropdown-item" href="/blog/skin" style="color: white;">Skin</a>
+          <a class="dropdown-item" href="/blog/hair" style="color: white;">Hair</a>
+          <a class="dropdown-item" href="/blog/body" style="color: white;">Body</a>
+        </div>
+      </div>
+
+    </div>
+    <!-- #masthead -->
+
+    <section id="content" role="main">
+      <div class="section">
+        <div class="containerblog">
+          <div class="row">
+            <div class="three-quarters-block">
+              <div class="contentblog">
+                <article
+                  class="post hentry"
+                  itemscope
+                  itemprop="blogPost"
+                  itemtype="<%=blog.imagePath%>"
+                >
+                  <header class="entry-header">
+                    <h2 class="entry-title" itemprop="headline">
+                      <%=blog.title%>
+                    </h2>
+
+                    <div class="entry-meta">
+                      <span class="post-date">
+                        <i class="fa fa-clock-o fa-fw"></i>
+                        <span class="updated"><%=blog.createdAt%></span>
+                      </span>
+                      <!-- .post-date -->
+
+                      <!-- <span class="post-author">
+                        <i class="fa fa-user fa-fw"></i> Written by
+                        <span class="vcard"
+                          ><a class="fn url" href="author.html"></a></span
+                        >
+                      </span> -->
+                      <!-- .post-author -->
+
+                      <span class="post-categories">
+                        <i class="fa fa-folder fa-fw"></i>
+                        <a href="/blog/<%=blog.blog_category%>" rel="tag"
+                          ><%=blog.blog_category%></a
+                        >
+                        <!-- <a href="blog.html" rel="tag">Category B</a> -->
+                      </span>
+                      <!-- .post-categories -->
+
+                      <span class="post-tags">
+                        <i class="fa fa-tags fa-fw"></i>
+                        <a href="blog.html" rel="tag">Tag A</a>,
+                        <a href="blog.html" rel="tag">Tag B</a>,
+                        <a href="blog.html" rel="tag">Tag C</a>
+                      </span>
+                      <!-- .post-tags -->
+                    </div>
+                    <!-- .entry-meta -->
+                  </header>
+                  <!-- .entry-header -->
+
+                  <div class="entry-image">
+                    <img
+                      src="<%=blog.imagePath%>"
+                      alt="Featured Image"
+                      itemprop="image"
+                    />
+                  </div>
+                  <!-- .entry-image -->
+
+                  <div class="entry-content" itemprop="articleBody">
+                    <p><%-blog.description%></p>
+                  </div>
+                  <!-- .entry-content -->
+                </article>
+                <!-- .post -->
+              </div>
+              <!-- .content -->
+            </div>
+            <!-- .three-quarters-block -->
+
+            <div class="one-quarter-block" role="complementary">
+              <div class="sidebarblog">
+                <!-- <div class="search-widget widget">
+                  <form
+                    class="widget-form"
+                    action="#"
+                    method="get"
+                    role="search"
+                  >
+                    <label>
+                      <span class="screen-reader-text"
+                        >Search this website:</span
+                      >
+                      <input
+                        type="search"
+                        class="search-field"
+                        placeholder="Search &hellip;"
+                        value=""
+                        name="search"
+                        title="Search"
+                      />
+                    </label>
+                    <button><i class="fa fa-search"></i></button>
+                  </form>
+                </div> -->
+                <!-- .search.widget -->
+
+                <div class="widget">
+                  <h3 class="widget-title">Categories</h3>
+                  <ul>
+                    <li><a href="/blog">All BLogs</a></li>
+                    <li><a href="/blog/skin">Skin</a></li>
+                    <li><a href="/blog/hair">Hair</a></li>
+                    <li><a href="/blog/body">Body</a></li>
+                  </ul>
+                </div>
+                <!-- .widget -->
+
+                <!-- <div class="widget">
+                  <h3 class="widget-title">Archives</h3>
+                  <ul>
+                    <li><a href="blog.html">July 2015</a></li>
+                    <li><a href="blog.html">June 2015</a></li>
+                    <li><a href="blog.html">May 2015</a></li>
+                    <li><a href="blog.html">April 2015</a></li>
+                    <li><a href="blog.html">March 2015</a></li>
+                    <li><a href="blog.html">February 2015</a></li>
+                    <li><a href="blog.html">January 2015</a></li>
+                    <li><a href="blog.html">December 2014</a></li>
+                    <li><a href="blog.html">November 2014</a></li>
+                    <li><a href="blog.html">October 2014</a></li>
+                  </ul>
+                </div> -->
+                <!-- .widget -->
+              </div>
+              <!-- .sidebar -->
+            </div>
+            <!-- .one-quarter-block -->
+          </div>
+          <!-- .row -->
+        </div>
+        <!-- .container -->
+      </div>
+      <!-- .section -->
+    </section>
+    <!-- #content -->
+
+    <!-- #prefooter -->
+
+    <!-- #footer -->
+
+    <!-- Scripts -->
+    <script
+      type="text/javascript"
+      src="/javascripts/singleblogjs/jquery-1.11.2.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="/javascripts/singleblogjs/custom.js"
+    ></script>
+  </body>
+</html>
+<%- include ../partials/homefooter %>

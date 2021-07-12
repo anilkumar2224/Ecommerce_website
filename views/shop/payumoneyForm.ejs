@@ -1,0 +1,1745 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  
+    <link rel="stylesheet" type="text/css" href="/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700"
+      media="all"
+    />
+    <link
+      rel="stylesheet"
+      href="https://sdk.loyaltylion.net/sdk/css/custom/1533c3411ce5dae0559c7211aa10c87f/panel-f2dcfc2.css"
+      media="all"
+      data-lion-custom-css="panel"
+    />
+    <link
+      rel="stylesheet"
+      href="https://sdk.loyaltylion.net/sdk/css/1533c3411ce5dae0559c7211aa10c87f/legacy-c4b1076-cd18b08.css"
+      media="all"
+      data-lion-css="legacy"
+    />
+    <link
+      rel="stylesheet"
+      href="//cdn.shopify.com/app/services/3902985/assets/83567640636/checkout_stylesheet/v2-ltr-2021-01-25-1dd58b0ad54342536b141709174f812a-43930"
+      media="all"
+    />
+
+    <!-- <script
+      src="//cdn.shopify.com/app/services/3902985/javascripts/checkout_countries/83567640636/en/countries-b22405ad87cbec5456dd0cf053829366f53f3eac-b22405ad87cbec5456dd0cf053829366f53f3eac-1601796940-e1413a830127c0c2806dff1ce9313204d837ef12.js?version=2021-01-25"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="//cdn.shopify.com/shopifycloud/shopify/assets/checkout_2021-01-25-efeaea7c57dc8513ef070d5452a2312e43891c82a37b690fc7cb35f20c2a042d.js"
+      crossorigin="anonymous"
+    ></script> -->
+    <script
+      async=""
+      src="//cdn.shopify.com/shopifycloud/shopify/assets/shop_events_listener-714e2e017903fad17d4471cb27d1f2c8a83b5a7a276f92420f7e5e40dbc9136e.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="//cdn-jp.gsecondscreen.com/static/jquery-noamd.min.js"
+    ></script>
+
+    <script type="text/javascript">
+      Shopify = window.Shopify || {};
+      Shopify.Checkout = Shopify.Checkout || {};
+    </script>
+
+    <script
+      src="https://www.artfut.com/static/tracking.min.js"
+      defer="defer"
+      onerror="ADMITAD.onError.call(this, '3' )"
+    ></script>
+    <script
+      src="https://www.artfut.com/static/crossdevice.min.js"
+      defer="defer"
+      onerror="ADMITAD.onError.call(this, '4')"
+    ></script>
+    <style>
+      .mainContainer {
+  width: 380px;
+  height: auto;
+  margin: 0 auto;
+  box-shadow:0 0 10px #2323;
+  background:white;
+  padding-bottom:20px;
+   padding-top:20px;
+}
+
+.center{
+  
+padding: 0.8rem;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.vcenter{
+  display:flex;
+  align-items:center;
+}
+
+
+
+
+
+h5{
+  width:220px;
+  margin:0 auto;
+  padding:8px;
+  margin-top:14px;
+  border-bottom:2px solid #bdc3c7;
+  letter-spacing:2px;
+  font-size:12px;
+  margin-bottom:12px;
+}
+.options{
+  width:250px;
+  height:75px;
+  margin:0 auto;
+  justify-content:space-between;
+}
+.options > .opt{
+  height:75px;
+  width:75px;
+  box-shadow:0 0 10px #2323; 
+  border-radius:5px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.options > .opt > .icon{
+  padding: 0.8rem;
+
+  height:30px;
+  color:#95a5a6;
+  font-size:20px;
+}
+.optname{
+  height:30px;
+  font-size:10px;
+  color:#232323;
+  letter-spacing:2px;
+  font-weight:bolder
+}
+.payment{
+  height:80px;
+  position:relative;
+  top: 24px;
+  box-shadow: 0 -5px 5px -5px #2323;
+  justify-content:space-around;
+}
+.val{
+  height:40px;
+  font-size:24px;
+  font-weight:bolder;
+  letter-spacing:2px;
+  color:#6480ef;
+}
+.button{
+  width:120px;
+  height:35px;
+  border-radius:1.2em;
+  background:linear-gradient(
+    to right,
+    #6480ef,
+    #7775e8,
+    #806ce8
+  ); 
+  color:white;
+  font-weight:bolder;
+  letter-spacing:2px;
+}
+.checked{
+  background: burlywood !important;
+}
+@media (min-width:1000px){
+  .step__footer{
+    display: flex !important; 
+    flex-direction: row !important;
+  }
+}
+@media (max-width:1000px){
+  .mainContainer{
+    width: 330px;
+   margin-bottom: 30px !important;
+  }
+}
+
+
+.price-card {
+  position:relative;
+/*   border:1px solid #bcbcbc; */
+  padding:0.1rem;
+  border-radius:3px;
+  width:100px;
+  align-items:center;
+  gap:.5rem;
+  cursor:pointer;
+  outline:none;
+  transition:.3s ease-in;
+}
+.price-card label{
+  position:absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  width:100%;
+  border-radius:3px;
+  border:1px solid #bcbcbc;
+  cursor:pointer;
+}
+.price-card input[type="radio"]:checked ~ label{
+  border:1px solid #5578E1;
+  background:rgba(85, 120, 225,.2);
+  color:#5578e1;
+  outline:none;
+  border-width:2px;
+}
+.price-card input[type="radio"]{
+  width:30px;
+  height:auto;
+  border:0;
+  transform:scale(1.5);
+}
+.price-card .content{
+  padding: 0.5rem;
+  display:flex;
+  flex-direction:column;
+}
+.price-card .content span{
+  font-size:.7rem;
+}
+.price-container{
+  display:flex;
+  gap:.95rem;
+  justify-content:space-evenly;
+}
+@media(min-width:1000px){
+  .payubutton{
+    height: 60px;
+    margin-top: 75px;
+  }
+}
+    </style>
+  </head>
+  
+  <body onload="submitPayuForm()">
+    
+    
+    <nav aria-label="Breadcrumb">
+      <ol
+        class="breadcrumb"
+        role="list"
+        style="padding: 16px; justify-content: center; margin-top: 0px"
+      >
+        <li
+          class="breadcrumb__item breadcrumb__item--current"
+          aria-current="step"
+          style="
+            width:30%;
+            height: 50px;
+            color: #fff;
+            border-radius: 5px;
+            font-size: 15px;
+            background-color: #d7a449;
+            background-repeat: no-repeat;
+            text-align: center;
+          "
+        >
+          <span class="breadcrumb__text" style=" margin-top: 20px; margin-left: -33px; position:absolute;">CHECKOUT</span>
+        </li>
+      </ol>
+    </nav>
+
+    <div class="content" data-content="">
+      <div class="wrap">
+        <div class="main" role="main">
+          <div class="main__content">
+            <div
+              class="step"
+              data-step="contact_information"
+              data-last-step="false"
+            >
+              <form
+                class="edit_checkout animate-floating-labels"
+                data-customer-information-form="true"
+                data-email-or-phone="false"
+                accept-charset="UTF-8"
+                name="payuform"
+                action="/payment_gateway/payumoney"
+                id="checkoutpaymentform"
+                method="POST"
+              >
+              
+                <div class="step__sections">
+                  <div class="section section--contact-information">
+                    <div class="section__header">
+                      <div
+                        class="
+                          layout-flex
+                          layout-flex--tight-vertical
+                          layout-flex--loose-horizontal
+                          layout-flex--wrap
+                        "
+                      >
+                        <h2
+                          class="
+                            section__title
+                            layout-flex__item layout-flex__item--stretch
+                          "
+                          id="main-header"
+                          tabindex="-1"
+                        >
+                          Contact information
+                        </h2>
+
+                       
+                        </p>
+                      </div>
+                    </div>
+                    <div
+                      class="section__content"
+                      data-section="customer-information"
+                      data-shopify-pay-validate-on-load="false"
+                    >
+                      <div class="fieldset">
+                        <div
+                          data-shopify-pay-email-flow="false"
+                          class="field field--required"
+                        >
+                          <div class="field__input-wrapper">
+                            <label
+                              class="field__label field__label--visible"
+                              for="checkout_email"
+                              >Email</label
+                            >
+                            <input
+                              placeholder="Email"
+                              autocapitalize="off"
+                              spellcheck="false"
+                              autocomplete="shipping email"
+                              data-autofocus="true"
+                              data-backup="customer_email"
+                              aria-describedby="checkout-context-step-one"
+                              aria-required="true"
+                              class="field__input"
+                              size="30"
+                              type="email"
+                              name="email"
+                              id="email"
+                              readonly
+                              value="<%=cart.user.email%>"
+                              required
+                            />
+                          </div>
+                        </div>
+                        <div>
+                          <div class="">
+                            
+                            <input
+                              placeholder="p info"
+                              name="productinfo"
+                              type="hidden"
+                              value="<%= producttitle%>"
+                              required
+                            />
+                          </div>
+
+                          <!-- very important -->
+                          <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+
+                          <input
+                            type="hidden"
+                            name="service_provider"
+                            value="payu_paisa"
+                          />
+                          <input type="hidden" name="udf2"  value="<%= productqty%>">
+                          <input type="hidden" name="udf3"  value="<%= productprice%>">
+
+                          <div class="">
+                            <!-- <%= total%> -->
+                            <input
+                              placeholder="Amount"
+                              name="amount"
+                              type="hidden"
+                              value="<%=discountAmount%>"
+                              required
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div
+                    class="section section--shipping-address"
+                    data-shipping-address=""
+                  >
+                    <div class="section__header">
+                      <h2 class="section__title" id="section-delivery-title">
+                        Shipping address
+                      </h2>
+                    </div>
+
+                    <div class="section__content">
+                      <div class="fieldset">
+                        <div class="address-fields" data-address-fields="">
+                          <div
+                            class="field field--required field--half"
+                            data-address-field="first_name"
+                          >
+                            <div class="field__input-wrapper">
+                              <label
+                                class="field__label field__label--visible"
+                                for="checkout_shipping_address_first_name"
+                                >First name</label
+                              >
+                              <input
+                                placeholder="First name"
+                                autocomplete="shipping given-name"
+                                autocorrect="off"
+                                data-backup="first_name"
+                                class="field__input"
+                                aria-required="true"
+                                size="30"
+                                type="text"
+                                id="firstname"
+                                name="firstname"
+                                required
+                              />
+                            </div>
+                          </div>
+                          <div
+                            class="field field--required field--half"
+                            data-address-field="last_name"
+                          >
+                            <div class="field__input-wrapper">
+                              <label
+                                class="field__label field__label--visible"
+                                for="checkout_shipping_address_last_name"
+                                >Last name</label
+                              >
+                              <input
+                                placeholder="Last name"
+                                autocomplete="shipping family-name"
+                                autocorrect="off"
+                                data-backup="last_name"
+                                class="field__input"
+                                aria-required="true"
+                                size="30"
+                                type="text"
+                                id="lastname"
+                                name="lastname"
+                                required
+                              />
+                            </div>
+                          </div>
+
+
+
+
+
+                          <!-- <div
+                          class="field field--required"
+                        >
+                          <div class="field__input-wrapper">
+                            <label
+                              class="field__label field__label--visible"
+                              for="checkout_shipping_address"
+                              >Address</label
+                            >
+                            <input
+                              placeholder="Address"
+                              autocorrect="off"
+                              class="field__input"
+                              aria-required="true"
+                              size="30"
+                              type="text"
+                              name="address"
+                              id="checkout_shipping_address"
+                            />
+                            
+                          </div>
+                        </div>
+ -->
+
+
+
+
+
+                          <div
+                            data-address-field="city"
+                            data-autocomplete-field-container="true"
+                            class="field field--required"
+                          >
+                            <div class="field__input-wrapper">
+                              <label
+                                class="field__label field__label--visible"
+                                for="checkout_shipping_address_city"
+                                >City</label
+                              >
+                              <input
+                                placeholder="City"
+                                autocomplete="shipping address-level2"
+                                autocorrect="off"
+                                data-backup="city"
+                                class="field__input"
+                                aria-required="true"
+                                size="30"
+                                type="text"
+                                name="city"
+                                required
+                                id="checkout_shipping_address_city"
+                              />
+                              <div
+                                id="custom_duty"
+                                style="font-size: 75%; display: none"
+                              >
+                                <span style="color: red">Customs:</span>
+                                International customers are responsible for any
+                                and all custom duties, taxes and brokerage fees
+                                that their package may incur. Please be sure of
+                                your country's import restrictions and
+                                requirements prior to ordering.
+                              </div>
+                            </div>
+                          </div>
+  
+                          
+  <div
+  class="field field--required"
+  >
+  <div class="field__input-wrapper">
+    <label
+    class="field__label field__label--visible"
+    >Address</label
+    >
+    <input
+    placeholder="Address"
+    autocorrect="off"
+    class="field__input"
+    aria-required="true"
+    size="30"
+    type="text"
+    name="udf1"
+    required
+    id="checkout_shipping_address"
+    />
+    
+  </div>
+</div>
+
+
+
+
+
+
+
+                          <div
+                            class="
+                              field
+                              field--required
+                              field--third
+                              field--show-floating-label
+                            "
+                            data-address-field="country"
+                            data-autocomplete-field-container="true"
+                          >
+                            <div
+                              class="
+                                field__input-wrapper
+                                field__input-wrapper--select
+                              "
+                            >
+                              <label
+                                class="field__label field__label--visible"
+                                for="checkout_shipping_address_country"
+                                >Country/Region</label
+                              >
+                              <select
+                                size="1"
+                                autocomplete="shipping country"
+                                data-backup="country"
+                                class="field__input field__input--select"
+                                aria-required="true"
+                                name="country"
+                                id="checkout_shipping_address_country"
+                                placeholder="Country/Region"
+                                value="India"
+                                required
+                                disabled
+                              >
+                                <option
+                                  data-code="IN"
+                                  selected="selected"
+                                  value="India"
+                                >
+                                  India
+                                </option>
+                                <option data-code="US" value="United States">
+                                  United States
+                                </option>
+                                <option
+                                  data-code="AE"
+                                  value="United Arab Emirates"
+                                >
+                                  United Arab Emirates
+                                </option>
+                                <option data-code="CA" value="Canada">
+                                  Canada
+                                </option>
+                                <option disabled="disabled" value="---">
+                                  ---
+                                </option>
+                                <option data-code="CA" value="Canada">
+                                  Canada
+                                </option>
+                                <option data-code="FR" value="France">
+                                  France
+                                </option>
+                                <option data-code="DE" value="Germany">
+                                  Germany
+                                </option>
+                                <option data-code="IN" value="India">
+                                  India
+                                </option>
+                                <option data-code="IT" value="Italy">
+                                  Italy
+                                </option>
+                                <option data-code="SG" value="Singapore">
+                                  Singapore
+                                </option>
+                                <option data-code="ES" value="Spain">
+                                  Spain
+                                </option>
+                                <option data-code="SE" value="Sweden">
+                                  Sweden
+                                </option>
+                                <option data-code="CH" value="Switzerland">
+                                  Switzerland
+                                </option>
+                                <option
+                                  data-code="AE"
+                                  value="United Arab Emirates"
+                                >
+                                  United Arab Emirates
+                                </option>
+                                <option data-code="GB" value="United Kingdom">
+                                  United Kingdom
+                                </option>
+                                <option data-code="US" value="United States">
+                                  United States
+                                </option>
+                              </select>
+                             
+                            </div>
+                          </div>
+
+                          <div
+                            class="
+                              field
+                              field--required
+                              field--show-floating-label
+                              field--third
+                            "
+                            data-address-field="province"
+                            data-autocomplete-field-container="true"
+                          >
+                            <div
+                              class="
+                                field__input-wrapper
+                                field__input-wrapper--select
+                              "
+                            >
+                              <label
+                                class="field__label field__label--visible"
+                                >State</label
+                              >
+                              <input
+                              placeholder=""
+                            list="udf4"
+                              class=" field__input field__input--select"
+                              name="state"
+                              required
+                              id=""
+                              />
+            
+                              <datalist id="udf4">
+                                
+                                <option
+                                  data-alternate-values='["Andaman and Nicobar Islands","Andaman and Nicobar"]'
+                                  value="Andaman and Nicobar Islands"
+                                >
+                                  Andaman and Nicobar Islands
+                                </option>
+                                <option
+                                  data-alternate-values='["Andhra Pradesh"]'
+                                  value="Andhra Pradesh"
+                                >
+                                  Andhra Pradesh
+                                </option>
+                                <option
+                                  data-alternate-values='["Arunachal Pradesh"]'
+                                  value="Arunachal Pradesh"
+                                >
+                                  Arunachal Pradesh
+                                </option>
+                                <option
+                                  data-alternate-values='["Assam"]'
+                                  value="Assam"
+                                >
+                                  Assam
+                                </option>
+                                <option
+                                  data-alternate-values='["Bihar"]'
+                                  value="Bihar"
+                                >
+                                  Bihar
+                                </option>
+                                <option
+                                  data-alternate-values='["Chandigarh"]'
+                                  value="Chandigarh"
+                                >
+                                  Chandigarh
+                                </option>
+                                <option
+                                  data-alternate-values='["Chhattisgarh","Chattisgarh","CT"]'
+                                  value=" Chhattisgarh"
+                                >
+                                  Chhattisgarh
+                                </option>
+                                <option
+                                  data-alternate-values='["Dadra and Nagar Haveli"]'
+                                  value=" Dadra and Nagar Haveli"
+                                >
+                                  Dadra and Nagar Haveli
+                                </option>
+                                <option
+                                  data-alternate-values='["Daman and Diu"]'
+                                  value="Daman and Diu"
+                                >
+                                  Daman and Diu
+                                </option>
+                                <option
+                                  data-alternate-values='["Delhi"]'
+                                  value="Delhi"
+                                >
+                                  Delhi
+                                </option>
+                                <option
+                                  data-alternate-values='["Goa"]'
+                                  value=" Goa"
+                                >
+                                  Goa
+                                </option>
+                                <option
+                                  data-alternate-values='["Gujarat"]'
+                                  value="Gujarat"
+                                >
+                                  Gujarat
+                                </option>
+                                <option
+                                  data-alternate-values='["Haryana"]'
+                                  value=" Haryana"
+                                >
+                                  Haryana
+                                </option>
+                                <option
+                                  data-alternate-values='["Himachal Pradesh"]'
+                                  value=" Himachal Pradesh"
+                                >
+                                  Himachal Pradesh
+                                </option>
+                                <option
+                                  data-alternate-values='["Jammu and Kashmir"]'
+                                  value="JK"
+                                >
+                                  Jammu and Kashmir
+                                </option>
+                                <option
+                                  data-alternate-values='["Jharkhand"]'
+                                  value="Jharkhand"
+                                >
+                                  Jharkhand
+                                </option>
+                                <option
+                                  data-alternate-values='["Karnataka"]'
+                                  value="Karnataka"
+                                >
+                                  Karnataka
+                                </option>
+                                <option
+                                  data-alternate-values='["Kerala"]'
+                                  value="Kerala"
+                                >
+                                  Kerala
+                                </option>
+                                <option
+                                  data-alternate-values='["Ladakh"]'
+                                  value="  Ladakh"
+                                >
+                                  Ladakh
+                                </option>
+                                <option
+                                  data-alternate-values='["Lakshadweep"]'
+                                  value=" Lakshadweep"
+                                >
+                                  Lakshadweep
+                                </option>
+                                <option
+                                  data-alternate-values='["Madhya Pradesh"]'
+                                  value="  Madhya Pradesh"
+                                >
+                                  Madhya Pradesh
+                                </option>
+                                <option
+                                  data-alternate-values='["Maharashtra"]'
+                                  value="Maharashtra"
+                                >
+                                  Maharashtra
+                                </option>
+                                <option
+                                  data-alternate-values='["Manipur"]'
+                                  value="  Manipur"
+                                >
+                                  Manipur
+                                </option>
+                                <option
+                                  data-alternate-values='["Meghalaya"]'
+                                  value="Meghalaya"
+                                >
+                                  Meghalaya
+                                </option>
+                                <option
+                                  data-alternate-values='["Mizoram"]'
+                                  value="Mizoram"
+                                >
+                                  Mizoram
+                                </option>
+                                <option
+                                  data-alternate-values='["Nagaland"]'
+                                  value="  Nagaland"
+                                >
+                                  Nagaland
+                                </option>
+                                <option
+                                  data-alternate-values='["Odisha","OD","Orissa"]'
+                                  value=" Odisha"
+                                >
+                                  Odisha
+                                </option>
+                                <option
+                                  data-alternate-values='["Puducherry"]'
+                                  value=" Puducherry"
+                                >
+                                  Puducherry
+                                </option>
+                                <option
+                                  data-alternate-values='["Punjab"]'
+                                  value=" Punjab"
+                                >
+                                  Punjab
+                                </option>
+                                <option
+                                  data-alternate-values='["Rajasthan"]'
+                                  value=" Rajasthan"
+                                >
+                                  Rajasthan
+                                </option>
+                                <option
+                                  data-alternate-values='["Sikkim"]'
+                                  value=" Sikkim"
+                                >
+                                  Sikkim
+                                </option>
+                                <option
+                                  data-alternate-values='["Tamil Nadu"]'
+                                  value="Tamil Nadu"
+                                >
+                                  Tamil Nadu
+                                </option>
+                                <option
+                                  data-alternate-values='["Telangana"]'
+                                  value="Telangana"
+                                >
+                                  Telangana
+                                </option>
+                                <option
+                                  data-alternate-values='["Tripura"]'
+                                  value="Tripura"
+                                >
+                                  Tripura
+                                </option>
+                                <option
+                                  data-alternate-values='["Uttar Pradesh"]'
+                                  value=" Uttar Pradesh"
+                                >
+                                  Uttar Pradesh
+                                </option>
+                                <option
+                                  data-alternate-values='["Uttarakhand"]'
+                                  value="Uttarakhand"
+                                >
+                                  Uttarakhand
+                                </option>
+                                <option
+                                  data-alternate-values='["West Bengal"]'
+                                  value="West Bengal"
+                                >
+                                  West Bengal
+                                </option>
+                              </datalist>
+                             
+                            </div>
+
+
+
+
+
+
+
+                            <!-- 
+                            <div
+                            class="field field--required"
+                            >
+                            <div class="field__input-wrapper">
+                              <label
+                              class="field__label field__label--visible"
+                              >Address</label
+                              >
+                              <input
+                              placeholder="Address"
+                              autocorrect="off"
+                              class="field__input"
+                              aria-required="true"
+                              size="30"
+                              type="text"
+                              name="udf1"
+                              required
+                              id="checkout_shipping_address"
+                              />
+                              
+                            </div>
+                          </div> -->
+
+                            <!-- <div class="form-group">
+                              <label for="udf2">Problem Type</label>
+                             
+                            </div> -->
+
+
+
+
+
+
+                          </div>
+                          <div
+                            class="field field--required field--third"
+                            data-address-field="zip"
+                            data-autocomplete-field-container="true"
+                          >
+                            <div class="field__input-wrapper">
+                              <label
+                                class="field__label field__label--visible"
+                                for="checkout_shipping_address_zip"
+                                >PIN code</label
+                              >
+                              <input
+                                placeholder="PIN code"
+                                required
+                                maxlength="6"
+
+                                autocomplete="shipping postal-code"
+                                autocorrect="off"
+                                data-backup="zip"
+                                data-autocomplete-title="Suggestions"
+                                data-autocomplete-single-item="1 item available"
+                                data-autocomplete-multi-item="{{
+                                  number
+                                }} items available"
+                                data-autocomplete-item-selection="{{
+                                  number
+                                }} of {{ total }}"
+                                data-autocomplete-close="Close suggestions"
+                                class="field__input field__input--zip"
+                                aria-required="true"
+                                size="30"
+                                type="text"
+                            
+                                name="zip"
+                                id="zip1"
+                              />
+                            </div>
+                          </div>
+                         
+                          <div
+                            data-address-field="phone"
+                            class="field field--required"
+                          >
+                            <div
+                              class="
+                                field__input-wrapper
+                                field__input-wrapper--icon-right
+                              "
+                            >
+                              <label
+                                class="field__label field__label--visible"
+                                for="checkout_shipping_address_phone"
+                                >Phone</label
+                              >
+                              <div class="mobile_num">
+                                <span>+91</span
+                                ><input
+                                  placeholder="Phone"
+                                  autocorrect="off"
+                                  class="field__input field__input--numeric"
+                                  aria-required="true"
+                                  maxlength="10"
+                                  type="tel"
+                                  name="phone"
+                                  required
+                                  id="phone"
+                                />
+                              </div>
+                              <div class="field__icon">
+                                <div
+                                  data-tooltip="true"
+                                  id="phone_tooltip"
+                                  class="tooltip-container"
+                                >
+                                  <button
+                                    type="button"
+                                    class="tooltip-control"
+                                    data-tooltip-control="true"
+                                    aria-label="More information"
+                                    aria-describedby="tooltip-for-phone"
+                                    aria-controls="tooltip-for-phone"
+                                    aria-pressed="false"
+                                    placeholder="Phone"
+                                  >
+                                    <svg
+                                      class="
+                                        icon-svg
+                                        icon-svg--color-adaptive-lighter
+                                        icon-svg--size-16
+                                        icon-svg--block
+                                        icon-svg--center
+                                      "
+                                      role="presentation"
+                                      aria-hidden="true"
+                                      focusable="false"
+                                    >
+                                      <use xlink:href="#question"></use>
+                                    </svg></button
+                                  ><span
+                                    class="tooltip"
+                                    role="tooltip"
+                                    id="tooltip-for-phone"
+                                    >In case we need to contact you about your
+                                    order</span
+                                  >
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          
+                        </div>
+
+
+
+                        <div>
+                          <p id="statusResult3" style="color: crimson;" >Enter your Pincode to check Delivery Options available in your Area.</p>
+                          <p id="statusResult4"></p>
+                        </div>
+                        <div class="field field--show-floating-label">
+                          <div class="checkbox-wrapper">
+                            <div class="checkbox__input">
+                              <input
+                                size="30"
+                                type="hidden"
+                                name="checkout[remember_me]"
+                              />
+                              <input
+                                name="checkout[remember_me]"
+                                type="hidden"
+                                value="0"
+                              /><input
+                                class="input-checkbox"
+                                data-backup="remember_me"
+                                type="checkbox"
+                                value="1"
+                                name="checkout[remember_me]"
+                                id="checkout_remember_me"
+                              />
+                            </div>
+                            <label
+                              class="checkbox__label"
+                              for="checkout_remember_me"
+                            >
+                              Save this information for next time
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                
+
+
+                <div class="step__footer" data-step-footer="" >
+                  <div class="mainContainer">
+                    <div class="status vcenter" style="margin-bottom:10px" > 
+                       <h5 class="center">PAYMENT OPTIONS</h5>
+                    </div>
+                  
+                    <div class="options vcenter">
+                      <div class="price-container">
+                        
+                        <div class="price-card ">
+                          <div class="icon center">
+                            <i class="fa fa-money" aria-hidden="true"></i>
+                          </div>
+                          <input name="udf5" id="codpay" type="radio" required value="COD">
+                          <div class="content optname center">
+                           COD
+                          
+                          </div>
+                          <input type="hidden" name="codprepaid" value="<%=cart.totalcodprepaid%>" required />
+                          <input type="hidden" name="udf4" value="<%= amount_to_pay_cod%>" required />
+                          <label for="codpay"></label>
+                        </div>
+                      
+                       
+                        <!-- <div class="optname center" style="text-align:center">Credit/Debit card/ UPI /Net Banking</div> -->
+                       <div class="price-card" style="width: fit-content;">
+                        <div class="icon center">
+                          <i class="fa fa-btc" aria-hidden="true"></i>
+                        </div>
+                      <input name="udf5" type="radio" id="otherspay" required value="OTHER">
+                      <div class="content optname center">
+                       Credit/Debit/UPI/Net Banking
+                      
+                      </div>
+                      <label for="otherspay"></label>
+                    </div>
+                      </div>
+                    
+                    </div>
+                 
+                  </div>
+
+
+
+
+                  <!-- <div class="price-container">
+                    <div class="price-card">
+                      <input name="price" id="monthly" type="radio">
+                      <div class="content">
+                       COD
+                      
+                      </div>
+                      <label for="monthly"></label>
+                    </div>
+                    
+                    <div class="price-card">
+                      <input name="price" type="radio" id="yearly">
+                      <div class="content">
+                       Credit/Debit/UPI/Net Banking
+                      
+                      </div>
+                      <label for="yearly"></label>
+                    </div>
+                    
+                  </div> -->
+
+
+
+
+                  <button
+                    name="button"
+                    value="Pay"
+                    type="submit"
+                    
+                    style="background-color: #d7a449"
+                    id="continue_button"
+                    class="step__footer__continue-btn btn payubutton"
+                    aria-busy="false"
+                  >
+                    <span class="btn__content">Proceed</span
+                    ><svg
+                      class="
+                        icon-svg icon-svg--size-18
+                        btn__spinner
+                        icon-svg--spinner-button
+                      "
+                      aria-hidden="true"
+                      focusable="false"
+                    >
+                      <use xlink:href="#spinner-button"></use>
+                    </svg>
+                  </button>
+                 
+                 
+                </div>
+
+                <div>
+                  <p id="statusResult5" style="color: crimson; display: none; margin-top: 20px;margin-left: 50px;" >Minimum amount to be paid   :    <%=cart.totalcodprepaid%></p>
+                  <!-- <p id="statusResult6"></p> -->
+                </div>
+<script>
+  // var codSelect= document.getElementById("codpay")
+  document.getElementById("codpay").addEventListener("click",(e)=>{
+    document.getElementById("statusResult5").style.display="block"
+    
+  })
+  document.getElementById("otherspay").addEventListener("click",(e)=>{
+    document.getElementById("statusResult5").style.display="none"
+    
+  })
+  // if(document.getElementById("codpay").checked){
+  //    document.getElementById("statusResult5").style.display="block"
+  // }else{
+  //   document.getElementById("statusResult5").style.display="none"
+    
+  // }
+</script>
+                <div class="error_msg"></div>
+              </form>
+            </div>
+          </div>
+          <div class="main__footer">
+            <ul class="policy-list" role="list">
+              <li class="policy-list__item">
+                <a
+                  aria-haspopup="dialog"
+                  data-modal="policy-refund-policy"
+                  data-title-text="Refund policy"
+                  data-close-text="Close"
+                  data-iframe="true"
+                  href=""
+                  >Refund policy</a
+                >
+              </li>
+              <li class="policy-list__item">
+                <a
+                  aria-haspopup="dialog"
+                  data-modal="policy-shipping-policy"
+                  data-title-text="Shipping policy"
+                  data-close-text="Close"
+                  data-iframe="true"
+                  href=""
+                  >Shipping policy</a
+                >
+              </li>
+              <li class="policy-list__item">
+                <a
+                  aria-haspopup="dialog"
+                  data-modal="policy-privacy-policy"
+                  data-title-text="Privacy policy"
+                  data-close-text="Close"
+                  data-iframe="true"
+                  href=""
+                  >Privacy policy</a
+                >
+              </li>
+              <li class="policy-list__item">
+                <a
+                  aria-haspopup="dialog"
+                  data-modal="policy-terms-of-service"
+                  data-title-text="Terms of service"
+                  data-close-text="Close"
+                  data-iframe="true"
+                  href=""
+                  >Terms of service</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="sidebar" role="complementary">
+          <div class="sidebar__header">
+            <a class="logo logo--left" href="https://plumgoodness.com/"
+              ><img
+                alt="Plum Goodness"
+                class="logo__image logo__image--medium"
+                src="//cdn.shopify.com/s/files/1/0390/2985/files/final-logo.png?43930"
+            /></a>
+
+            <h1 class="visually-hidden">Information</h1>
+          </div>
+          <div class="sidebar__content">
+            <p
+              class="aditional-txt"
+              style="font-size: 16px; color: #d7a449; margin: 12px 0px"
+            >
+              Lorem Ipsum is simply dummy text of the printing and typesetting
+              industry. Lorem Ipsum has been the industry's standard dummy text
+              ever since the 1500s, when an unknown printer took a galley of
+              type and scrambled it to make a type specimen book. It has
+              survived not only five centuries
+            </p>
+            <div
+              id="order-summary"
+              class="order-summary order-summary--is-expanded"
+              data-order-summary=""
+            >
+              <h2 class="visually-hidden-if-js">Order summary</h2>
+
+              <div class="order-summary__sections">
+
+              
+                <!-- <%= cart.items.length %> -->
+                <% for(var i=0;i<cart.items.length;i++){ %>
+               
+                  <div
+                  class="
+                    order-summary__section order-summary__section--product-list
+                  "
+                >
+                  <div class="order-summary__section__content">
+                    <table class="product-table">
+                      <caption class="visually-hidden">
+                        Shopping cart
+                      </caption>
+                      <thead class="product-table__header">
+                        <tr>
+                          <th scope="col">
+                            <span class="visually-hidden">Product image</span>
+                          </th>
+                          <th scope="col">
+                            <span class="visually-hidden">Description</span>
+                          </th>
+                          <th scope="col">
+                            <span class="visually-hidden">Quantity</span>
+                          </th>
+                          <th scope="col">
+                            <span class="visually-hidden">Price</span>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody data-order-summary-section="line-items">
+                        <tr
+                          class="product"
+                          data-product-id="388472257"
+                          data-variant-id="31885629653052"
+                          data-product-type="Combo"
+                          data-customer-ready-visible=""
+                        >
+                          <td class="product__image">
+                            <div class="product-thumbnail">
+                              <div class="product-thumbnail__wrapper">
+                                <img src="<%=cart.items[i].productId.imagePath[0]%>"  alt="" style="object-fit: cover; height: 100%;">
+                              </div>
+                              <span
+                                class="product-thumbnail__quantity"
+                                aria-hidden="true"
+                                ><%=cart.items[i].qty%></span
+                              >
+                            </div>
+                          </td>
+                          <th class="product__description" scope="row">
+                            <span
+                              class="
+                                product__description__name
+                                order-summary__emphasis
+                              "
+                              >Product description:&nbsp<%=cart.items[i].title%></span
+                            >
+                            <span
+                              class="
+                                product__description__variant
+                                order-summary__small-text
+                              "
+                            ></span>
+                          </th>
+                          <td class="product__quantity">
+                            <span class="visually-hidden"> 2 </span>
+                          </td>
+                          <td class="product__price">
+                            <span
+                              class="
+                                order-summary__emphasis
+                                skeleton-while-loading
+                              "
+                              >₹<%=cart.items[i].price%></span
+                            >
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                    <div
+                      class="order-summary__scroll-indicator"
+                      aria-hidden="true"
+                      tabindex="-1"
+                    >
+                      Scroll for more items
+                      <svg
+                        aria-hidden="true"
+                        focusable="false"
+                        class="icon-svg icon-svg--size-12"
+                      >
+                        <use xlink:href="#down-arrow"></use>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+             
+                <% } %>
+
+
+
+
+
+
+              
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+               
+
+                <div
+                  class="
+                    order-summary__section order-summary__section--total-lines
+                  "
+                  data-order-summary-section="payment-lines"
+                >
+                  <table class="total-line-table">
+                    <caption class="visually-hidden">
+                      Cost summary
+                    </caption>
+                    <thead>
+                      <tr>
+                        <th scope="col">
+                          <span class="visually-hidden">Description</span>
+                        </th>
+                        <th scope="col">
+                          <span class="visually-hidden">Price</span>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody class="total-line-table__tbody">
+                      <tr class="total-line total-line--subtotal">
+                        <th class="total-line__name" scope="row">Subtotal</th>
+                        <td class="total-line__price">
+                          <span
+                            class="
+                              order-summary__emphasis
+                              skeleton-while-loading
+                            "
+                          >
+                            ₹<%= total%>
+                          </span>
+                        </td>
+                      </tr>
+
+                      <!-- <tr class="total-line total-line--shipping">
+                        <th class="total-line__name" scope="row">
+                          <span> Shipping </span>
+
+                          <a
+                            aria-haspopup="dialog"
+                            data-modal="policy-shipping-policy"
+                            data-title-text="Shipping policy"
+                            data-close-text="Close"
+                            data-iframe="true"
+                            href=""
+                          >
+                            <span class="visually-hidden">Shipping costs</span>
+                            <svg
+                              class="
+                                icon-svg
+                                icon-svg--color-adaptive-lighter
+                                icon-svg--size-14
+                                icon-svg--inline-after
+                                icon-svg--clickable
+                              "
+                              role="presentation"
+                              aria-hidden="true"
+                              focusable="false"
+                            >
+                              <use xlink:href="#question"></use>
+                            </svg>
+                          </a>
+                        </th>
+                        <td class="total-line__price">
+                          <span
+                            class="
+                              skeleton-while-loading
+                              order-summary__small-text
+                            "
+                            data-checkout-total-shipping-target="0"
+                          >
+                            ₹Shipping cost
+                          </span>
+                        </td>
+                      </tr> -->
+                      <tr class="total-line total-line--shipping">
+                        <th class="total-line__name" scope="row">
+                          <span> Shipping </span>
+
+                         
+                        </th>
+                        <td class="total-line__price">
+                          <span
+                            class="
+                              skeleton-while-loading
+                              order-summary__small-text
+                            "
+                            data-checkout-total-shipping-target="0"
+                          >
+                        
+                            +(₹<%=charge%>)
+                          </span>
+                        </td>
+                      </tr>
+                      <tr class="total-line total-line--shipping">
+                        <th class="total-line__name" scope="row">
+                          <span> Discount </span>
+
+                         
+                        </th>
+                        <td class="total-line__price">
+                          <span
+                            class="
+                              skeleton-while-loading
+                              order-summary__small-text
+                            "
+                            data-checkout-total-shipping-target="0"
+                          >
+                        
+                            -(₹<%=pricedrop%>)
+                          </span>
+                        </td>
+                      </tr>
+                    </tbody>
+                    <tfoot class="total-line-table__footer">
+                      <tr class="total-line">
+                        <th
+                          class="total-line__name payment-due-label"
+                          scope="row"
+                        >
+                          <span class="payment-due-label__total">Total</span>
+                          <span
+                            class="
+                              payment-due-label__taxes
+                              order-summary__small-text
+                            "
+                            data-checkout-taxes=""
+                          >
+                            Including
+                            <span data-checkout-total-taxes-target="54885"
+                              >₹tax amount (if applicable)</span
+                            >
+                            in taxes
+                          </span>
+                        </th>
+                        <td
+                          class="total-line__price payment-due"
+                          data-presentment-currency="INR"
+                        >
+                          <span
+                            class="
+                              payment-due__price
+                              skeleton-while-loading--lg
+                            "
+                            data-checkout-payment-due-target="359800"
+                          >
+                           ₹<%= discountAmount %>
+                          </span>
+                        </td>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+              
+
+
+               
+
+
+              </div>
+
+             
+
+
+
+              
+
+
+              
+           
+           
+           
+            </div>
+
+            <div
+              class="visually-hidden"
+              data-order-summary-section="accessibility-live-region"
+            >
+              <div aria-live="polite" aria-atomic="true" role="status">
+                Updated total price:
+                <span data-checkout-payment-due-target="359800">
+                  ₹3,598.00
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      
+ 
+      $( "#checkoutpaymentform" ).validate({
+    rules: {
+        udf4: { required: true }
+    }
+});
+
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!-- <script>
+   
+      var selected = false
+      function paymentmethod(e){
+
+
+     if(e=='method1'){
+        selected= true
+       document.getElementById("method2").classList.remove('checked')
+       document.getElementById("method1").classList.add('checked')
+       document.getElementById("checkoutpaymentform").action="/payment_gateway/payumoney";
+
+     
+        
+     }else if(e=='method2'){
+      selected= true
+
+      document.getElementById("method1").classList.remove('checked')
+
+      document.getElementById("method2").classList.add('checked')
+
+      document.getElementById("checkoutpaymentform").action="/payment_gateway/payumoney";
+      
+     }
+}
+   document.getElementById("continue_button").addEventListener('click',(e)=>{
+         var filled = true;
+         $('#checkoutpaymentform input').not('#continue_button').each(function(){
+           if($(this).val()==''){
+             console.log("not filled")
+             filled= false
+           }
+         })
+         if(selected){
+           if(filled){
+             document.getElementById("checkoutpaymentform").submit()
+           }else{
+            //  e.preventDefault()
+            // alert("please fill all the fields")
+           }
+         }
+         else{
+            //  alert('please fill a payment method')
+            //  e.preventDefault()
+           }
+       })    
+
+    </script> -->
+  <script>
+    document.getElementById("continue_button").addEventListener("click",(e)=>{
+      if( !document.getElementById("codpay").checked && !document.getElementById("otherspay").checked){
+alert("please select a payment method")
+    }
+    })
+  
+    
+  </script>
+    <script>
+
+    $("#zip1").keyup(function () {
+  //   checkPin();
+  var pincodes = [
+    110001, 110002, 110003, 110004, 110005, 110006, 110007, 110008, 110009,
+    110010, 110011, 110012, 110013, 110014, 110015, 110016, 110017, 110018,
+    110019,
+  ];
+
+  //Just fill the above array with CSV of pincodes you have. If you have excel use any online tool to convert that list to csv. A simple google will tell you how to do that
+
+  var zipCode = $("#zip1").val();
+  console.log(zipCode);
+  var zip = parseInt(zipCode);
+  var flag = 0;
+
+  for (var i = 0; i < pincodes.length; i++) {
+    if (pincodes[i] == zip) flag = 1;
+  }
+
+  if (flag) {
+    document.getElementById("continue_button").disabled = false
+      
+    $("#statusResult3")
+      .html(
+        "Shipping Available! There will be a delay in shipping of your order owing to the COVID situation."
+      )
+      .css("color", "green");
+    $("#statusResult4").html("");
+  } else {
+    document.getElementById("continue_button").disabled = true
+    
+    
+  
+    // alert('please enter a valid pincode')
+    $("#statusResult4").html("Shipping is not available.").css("color", "red");
+    $("#statusResult3").html("");
+  }
+  return;
+});
+
+    </script>
+    
+  </body>
+</html>
